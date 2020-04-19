@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  minimun_guest: 1
+  start_event_date_vote: 2020-04-18 18:12:30
+  event_rule: false
+  hidden: false
+
+two:
+  location: MyString
+  minimun_guest: 1
+  start_event_date_vote: 2020-04-18 18:12:30
+  event_rule: false
+  hidden: false
