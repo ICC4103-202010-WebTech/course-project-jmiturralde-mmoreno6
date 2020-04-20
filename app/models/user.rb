@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  validates :username, uniqueness: true
+  validates :email, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
+                             message: "invalid email address" }, uniqueness: true
   has_one :profile_page
   has_many :event_creators
   has_many :event_invitations
