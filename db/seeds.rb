@@ -32,15 +32,14 @@ SendMessage.create(mail_box: mb3, receiver_username: "martinmoreno", title: "My 
 ProfilePage.create(user: admin_user, picture: "image", name: "Admin", last_name: "Admin", bio: "Admin", location: "Adminlandia")
 MailBox.create(user: admin_user)
 
-o = Organization.create(user: u1)
+o = Organization.create(user: u1, name: "UAndes", description: "Universidad de los Andes, Chile", banner_picture: "url")
 OrganizationInvitation.create(user: u2 , organization: o, admin: false)
 OrganizationInvitation.create(user: u3, organization: o, admin: true)
 
 
-ohp = OrganizationHomePage.create(organization: o,name: "UAndes", description: "Universidad de los Andes, Chile", banner_picture: "url")
-ImageOrganizationPage.create(organization_home_page: ohp, image: "url_image")
-VideoOrganizationPage.create(organization_home_page: ohp,video: "url_video")
-PdfOrganizationPage.create(organization_home_page: ohp,pdf: "url_pdf")
+ImageOrganizationPage.create(organization: o, image: "url_image")
+VideoOrganizationPage.create(organization: o,video: "url_video")
+PdfOrganizationPage.create(organization: o,pdf: "url_pdf")
 
 
 e = Event.create(user: u1, organization: o, location: "Event Location 1", minimum_guest: 20, event_rule: true)

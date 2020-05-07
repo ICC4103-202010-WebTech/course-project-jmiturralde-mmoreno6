@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_161001) do
+ActiveRecord::Schema.define(version: 2020_05_07_210724) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "commented_id"
@@ -93,8 +93,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_161001) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "organization_home_page_id"
-    t.index ["organization_home_page_id"], name: "index_image_organization_pages_on_organization_home_page_id"
+    t.integer "organization_id"
+    t.index ["organization_id"], name: "index_image_organization_pages_on_organization_id"
   end
 
   create_table "mail_boxes", force: :cascade do |t|
@@ -113,16 +113,6 @@ ActiveRecord::Schema.define(version: 2020_05_07_161001) do
     t.index ["event_invitation_id"], name: "index_notifications_on_event_invitation_id"
   end
 
-  create_table "organization_home_pages", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.string "banner_picture"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "organization_id"
-    t.index ["organization_id"], name: "index_organization_home_pages_on_organization_id"
-  end
-
   create_table "organization_invitations", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -137,6 +127,9 @@ ActiveRecord::Schema.define(version: 2020_05_07_161001) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.string "name"
+    t.string "description"
+    t.string "banner_picture"
     t.index ["user_id"], name: "index_organizations_on_user_id"
   end
 
@@ -152,8 +145,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_161001) do
     t.string "pdf"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "organization_home_page_id"
-    t.index ["organization_home_page_id"], name: "index_pdf_organization_pages_on_organization_home_page_id"
+    t.integer "organization_id"
+    t.index ["organization_id"], name: "index_pdf_organization_pages_on_organization_id"
   end
 
   create_table "profile_pages", force: :cascade do |t|
@@ -218,8 +211,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_161001) do
     t.string "video"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "organization_home_page_id"
-    t.index ["organization_home_page_id"], name: "index_video_organization_pages_on_organization_home_page_id"
+    t.integer "organization_id"
+    t.index ["organization_id"], name: "index_video_organization_pages_on_organization_id"
   end
 
   add_foreign_key "comments", "event_home_pages"
@@ -233,20 +226,19 @@ ActiveRecord::Schema.define(version: 2020_05_07_161001) do
   add_foreign_key "hyper_link_comments", "comments"
   add_foreign_key "image_comments", "comments"
   add_foreign_key "image_event_pages", "event_home_pages"
-  add_foreign_key "image_organization_pages", "organization_home_pages"
+  add_foreign_key "image_organization_pages", "organizations"
   add_foreign_key "mail_boxes", "users"
   add_foreign_key "notifications", "event_invitations"
-  add_foreign_key "organization_home_pages", "organizations"
   add_foreign_key "organization_invitations", "organizations"
   add_foreign_key "organization_invitations", "users"
   add_foreign_key "organizations", "users"
   add_foreign_key "pdf_event_pages", "event_home_pages"
-  add_foreign_key "pdf_organization_pages", "organization_home_pages"
+  add_foreign_key "pdf_organization_pages", "organizations"
   add_foreign_key "profile_pages", "users"
   add_foreign_key "received_messages", "mail_boxes"
   add_foreign_key "send_messages", "mail_boxes"
   add_foreign_key "user_votes", "event_dates"
   add_foreign_key "user_votes", "event_invitations"
   add_foreign_key "video_event_pages", "event_home_pages"
-  add_foreign_key "video_organization_pages", "organization_home_pages"
+  add_foreign_key "video_organization_pages", "organizations"
 end

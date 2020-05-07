@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resource :profile_pages, :mail_boxes
+    resources :organizations, shallow: true
   end
 
 

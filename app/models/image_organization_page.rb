@@ -1,3 +1,3 @@
 class ImageOrganizationPage < ApplicationRecord
-  belongs_to  :organization_home_page
+  belongs_to  :organization
 end

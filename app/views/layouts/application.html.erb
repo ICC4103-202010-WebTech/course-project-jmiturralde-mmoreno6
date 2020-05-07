@@ -17,10 +17,25 @@
     <ul id="navbar">
       <li><%= link_to 'Profile', user_profile_pages_path(1) %></li>
       <li><%= link_to 'MailBox', user_mail_boxes_path(1) %></li>
+      <li><%= link_to 'Organizations', user_organizations_path(1) %></li>
     </ul>
   </nav>
 
-  <body>
-    <%= yield %>
-  </body>
+  <div id="container">
+    <aside id="customer_info">
+      Welcome
+    </aside>
+
+    <main>
+
+      <%= yield %>
+
+    </main>
+
+  </div>
+
+  <footer>
+    <h4>Contact Information</h4>
+    <p>mmoreno6@miuandes.cl jmiturralde@miuandes.cl</p>
+  </footer>
 </html>
