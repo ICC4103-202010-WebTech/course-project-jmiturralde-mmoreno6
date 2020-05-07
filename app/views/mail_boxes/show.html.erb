@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<h1>MailBox</h1>
+
+<h2>Received Messages</h2>
+<table style="width: 70%">
+  <thead>
+  <tr>
+    <th>From</th>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Date</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @received_messages.each do |message| %>
+    <tr>
+      <td><%= message.sender_username %></td>
+      <td><%= message.title %></td>
+      <td><%= message.body %></td>
+      <td><%= message.created_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<h2>Send Messages</h2>
+<table style="width: 70%">
+  <thead>
+  <tr>
+    <th>To</th>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Date</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @send_messages.each do |message| %>
+    <tr>
+      <td><%= message.receiver_username %></td>
+      <td><%= message.title %></td>
+      <td><%= message.body %></td>
+      <td><%= message.created_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Back', root_path %>

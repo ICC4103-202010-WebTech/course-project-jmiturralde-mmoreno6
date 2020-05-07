@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_225339) do
+ActiveRecord::Schema.define(version: 2020_05_07_161001) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "commented_id"
@@ -21,13 +21,6 @@ ActiveRecord::Schema.define(version: 2020_04_19_225339) do
     t.integer "event_home_page_id"
     t.index ["event_home_page_id"], name: "index_comments_on_event_home_page_id"
     t.index ["event_invitation_id"], name: "index_comments_on_event_invitation_id"
-  end
-
-  create_table "event_creators", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_event_creators_on_user_id"
   end
 
   create_table "event_dates", force: :cascade do |t|
@@ -66,10 +59,10 @@ ActiveRecord::Schema.define(version: 2020_04_19_225339) do
     t.boolean "hidden"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "event_creator_id"
     t.integer "organization_id"
-    t.index ["event_creator_id"], name: "index_events_on_event_creator_id"
+    t.integer "user_id"
     t.index ["organization_id"], name: "index_events_on_organization_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "hyper_link_comments", force: :cascade do |t|
@@ -120,13 +113,6 @@ ActiveRecord::Schema.define(version: 2020_04_19_225339) do
     t.index ["event_invitation_id"], name: "index_notifications_on_event_invitation_id"
   end
 
-  create_table "organization_creators", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_organization_creators_on_user_id"
-  end
-
   create_table "organization_home_pages", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -150,8 +136,8 @@ ActiveRecord::Schema.define(version: 2020_04_19_225339) do
   create_table "organizations", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "organization_creator_id"
-    t.index ["organization_creator_id"], name: "index_organizations_on_organization_creator_id"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_organizations_on_user_id"
   end
 
   create_table "pdf_event_pages", force: :cascade do |t|
@@ -238,24 +224,22 @@ ActiveRecord::Schema.define(version: 2020_04_19_225339) do
 
   add_foreign_key "comments", "event_home_pages"
   add_foreign_key "comments", "event_invitations"
-  add_foreign_key "event_creators", "users"
   add_foreign_key "event_dates", "events"
   add_foreign_key "event_home_pages", "events"
   add_foreign_key "event_invitations", "events"
   add_foreign_key "event_invitations", "users"
-  add_foreign_key "events", "event_creators"
   add_foreign_key "events", "organizations"
+  add_foreign_key "events", "users"
   add_foreign_key "hyper_link_comments", "comments"
   add_foreign_key "image_comments", "comments"
   add_foreign_key "image_event_pages", "event_home_pages"
   add_foreign_key "image_organization_pages", "organization_home_pages"
   add_foreign_key "mail_boxes", "users"
   add_foreign_key "notifications", "event_invitations"
-  add_foreign_key "organization_creators", "users"
   add_foreign_key "organization_home_pages", "organizations"
   add_foreign_key "organization_invitations", "organizations"
   add_foreign_key "organization_invitations", "users"
-  add_foreign_key "organizations", "organization_creators"
+  add_foreign_key "organizations", "users"
   add_foreign_key "pdf_event_pages", "event_home_pages"
   add_foreign_key "pdf_organization_pages", "organization_home_pages"
   add_foreign_key "profile_pages", "users"

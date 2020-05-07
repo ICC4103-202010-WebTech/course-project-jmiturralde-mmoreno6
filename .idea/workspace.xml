@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="defb9cd1-f657-4276-92af-6aed7643295d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/event.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/organization.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/organization.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418163757_create_organization_creators.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418164516_add_user_id_to_organization_creator.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418164629_add_organization_creator_id_to_organization.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418213550_create_event_creators.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418222151_add_user_id_to_event_creator.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418222232_add_event_creator_id_to_event.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tasks/model_queries.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/model_queries.rake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +42,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab6-mmoreno-jmiturralde" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
@@ -155,7 +168,11 @@
       <workItem from="1587173253782" duration="2240000" />
       <workItem from="1587224284086" duration="194000" />
       <workItem from="1587224479399" duration="20370000" />
-      <workItem from="1587326286095" duration="22639000" />
+      <workItem from="1587326286095" duration="23307000" />
+      <workItem from="1587400878446" duration="1770000" />
+      <workItem from="1587570998474" duration="610000" />
+      <workItem from="1587600132037" duration="26000" />
+      <workItem from="1588862170462" duration="2901000" />
     </task>
     <servers />
   </component>
@@ -163,10 +180,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587224476561">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587600156623">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1587224476561" />
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1587600156623" />
     <state x="379" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1587339343731">
       <screen x="67" y="27" width="1299" height="741" />
     </state>

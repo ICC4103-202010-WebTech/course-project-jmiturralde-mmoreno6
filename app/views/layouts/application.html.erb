@@ -9,6 +9,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <h1><%= link_to 'Events App', root_path%></h1>
+  </header>
+
+  <nav>
+    <ul id="navbar">
+      <li><%= link_to 'Profile', user_profile_pages_path(1) %></li>
+      <li><%= link_to 'MailBox', user_mail_boxes_path(1) %></li>
+    </ul>
+  </nav>
+
   <body>
     <%= yield %>
   </body>

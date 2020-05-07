@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your Profile</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <ul>
+    <li><b>Picture:</b> <%= @profile_page.picture %></li>
+    <li><b>Username:</b> <%= @user.username %></li>
+    <li><b>Name:</b> <%= @profile_page.name %></li>
+    <li><b>Last Name:</b> <%= @profile_page.last_name %></li>
+    <li><b>Email:</b> <%= @user.email %></li>
+    <li><b>Short Bio:</b> <%= @profile_page.bio %></li>
+    <li><b>Location:</b> <%= @profile_page.location %></li>
+    <li><b>Join us:</b> <%= @profile_page.created_at %></li>
+  </ul>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_user_profile_pages_path(@profile_page) %> |
+<%= link_to 'Back', root_path %>

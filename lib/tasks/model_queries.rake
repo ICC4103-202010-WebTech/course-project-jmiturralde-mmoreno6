@@ -5,7 +5,7 @@ namespace :db do
     user_id = 2
     puts("Query 1: Get all events created by certain user id: " + user_id.to_s)
     result = User.find(user_id).events
-    puts(result)
+    p(result)
     puts("EQQ")
 
     organization_id = 1

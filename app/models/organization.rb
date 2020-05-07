@@ -1,5 +1,5 @@
 class Organization < ApplicationRecord
-  belongs_to :organization_creator
+  belongs_to :user
   has_many :organization_invitations
   has_many :events
   has_many :users, :through => :organization_invitations
