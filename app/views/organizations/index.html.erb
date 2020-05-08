@@ -2,18 +2,56 @@
 
 <h1>Organizations</h1>
 
-<table>
-  <thead>
+<tbody>
+<h3>My Created Organizations</h3>
+<% if @organizations != []%>
+  <table style="width: 70%">
+    <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>N</th>
+      <th>Name</th>
     </tr>
-  </thead>
+    </thead>
+      <% index = 1 %>
+      <% @organizations.each do |organization| %>
+        <tr>
+          <td><%= index %></td>
+          <td><%= link_to organization.name, organization_path(organization.id) %></td>
+        </tr>
+      <% index += 1 %>
+      <% end %>
+  </table>
+<%else %>
+  <p>You have not create an organization yet</p>
+<% end %>
 
-  <tbody>
-    <% @organizations.each do |organization| %>
-      <tr>
-        <td><%= link_to organization.name, organization_path(organization.id) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<br>
+
+<h3>Organization where I am admin</h3>
+<% if @organizations_admin != []%>
+
+  <table style="width: 70%">
+    <thead>
+    <tr>
+      <th>N</th>
+      <th>Name</th>
+    </tr>
+    </thead>
+    <% index = 1 %>
+      <% @organizations_admin.each do |organization| %>
+        <tr>
+          <td><%= index %></td>
+          <td><%= link_to organization.name, organization_path(organization.id) %></td>
+        </tr>
+      <% index += 1 %>
+      <% end %>
+  </table>
+<% else %>
+  <p>You are not admin of any organization :(</p>
+<% end %>
+
+
+
+
+
+</tbody>

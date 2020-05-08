@@ -1,0 +1,17 @@
+<%= form_with(model: organization_invitation, local: true) do |form| %>
+  <% if organization_invitation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(organization_invitation.errors.count, "error") %> prohibited this organization_invitation from being saved:</h2>
+
+      <ul>
+        <% organization_invitation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

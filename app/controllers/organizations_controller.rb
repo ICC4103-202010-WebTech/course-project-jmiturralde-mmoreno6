@@ -5,11 +5,13 @@ class OrganizationsController < ApplicationController
   # GET /organizations.json
   def index
     @organizations = Organization.all.where("user_id = ?", params[:user_id])
+    @organizations_admin = OrganizationInvitation.joins(:organization).where("organization_invitations.user_id = ? AND admin = ?", params[:user_id],true).select("organizations.id, organizations.name as name, admin")
   end
 
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+    @events_organization = Event.all.where("organization_id = ?", params[:id])
   end
 
   # GET /organizations/new

@@ -36,6 +36,8 @@ o = Organization.create(user: u1, name: "UAndes", description: "Universidad de l
 OrganizationInvitation.create(user: u2 , organization: o, admin: false)
 OrganizationInvitation.create(user: u3, organization: o, admin: true)
 
+o2 = Organization.create(user: u2, name: "Curico Unido", description: "Curico, Chile", banner_picture: "url2")
+OrganizationInvitation.create(user: u1 , organization: o2, admin: false)
 
 ImageOrganizationPage.create(organization: o, image: "url_image")
 VideoOrganizationPage.create(organization: o,video: "url_video")

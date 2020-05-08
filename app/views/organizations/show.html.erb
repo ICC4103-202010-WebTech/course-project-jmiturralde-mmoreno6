@@ -1,4 +1,28 @@
 <p id="notice"><%= notice %></p>
 
+<h3>Events</h3>
+<% if @events_organization != []%>
 
+  <table style="width: 70%">
+    <thead>
+    <tr>
+      <th>N</th>
+      <th>Location</th>
+      <th>Minimum guest</th>
+    </tr>
+    </thead>
+    <% index = 1 %>
+    <% @events_organization.each do |event| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= event.location %></td>
+        <td><%= event.minimum_guest %></td>
+      </tr>
+      <% index += 1 %>
+    <% end %>
+  </table>
+<% else %>
+  <p>This organization doesn't have any event :(</p>
+<% end %>
+<br>
 <%= link_to 'Back', user_organizations_path(1) %>
