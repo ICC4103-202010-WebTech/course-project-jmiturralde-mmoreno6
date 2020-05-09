@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_210724) do
+ActiveRecord::Schema.define(version: 2020_05_08_214944) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "commented_id"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_210724) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "event_invitation_id"
-    t.integer "event_home_page_id"
-    t.index ["event_home_page_id"], name: "index_comments_on_event_home_page_id"
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_comments_on_event_id"
     t.index ["event_invitation_id"], name: "index_comments_on_event_invitation_id"
   end
 
@@ -29,16 +29,6 @@ ActiveRecord::Schema.define(version: 2020_05_07_210724) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "event_id"
     t.index ["event_id"], name: "index_event_dates_on_event_id"
-  end
-
-  create_table "event_home_pages", force: :cascade do |t|
-    t.string "banner_picture"
-    t.string "title"
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "event_id"
-    t.index ["event_id"], name: "index_event_home_pages_on_event_id"
   end
 
   create_table "event_invitations", force: :cascade do |t|
@@ -61,6 +51,9 @@ ActiveRecord::Schema.define(version: 2020_05_07_210724) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "organization_id"
     t.integer "user_id"
+    t.string "title"
+    t.string "description"
+    t.string "banner_picture"
     t.index ["organization_id"], name: "index_events_on_organization_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
@@ -85,8 +78,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_210724) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "event_home_page_id"
-    t.index ["event_home_page_id"], name: "index_image_event_pages_on_event_home_page_id"
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_image_event_pages_on_event_id"
   end
 
   create_table "image_organization_pages", force: :cascade do |t|
@@ -137,8 +130,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_210724) do
     t.string "pdf"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "event_home_page_id"
-    t.index ["event_home_page_id"], name: "index_pdf_event_pages_on_event_home_page_id"
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_pdf_event_pages_on_event_id"
   end
 
   create_table "pdf_organization_pages", force: :cascade do |t|
@@ -203,8 +196,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_210724) do
     t.string "video"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "event_home_page_id"
-    t.index ["event_home_page_id"], name: "index_video_event_pages_on_event_home_page_id"
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_video_event_pages_on_event_id"
   end
 
   create_table "video_organization_pages", force: :cascade do |t|
@@ -215,30 +208,29 @@ ActiveRecord::Schema.define(version: 2020_05_07_210724) do
     t.index ["organization_id"], name: "index_video_organization_pages_on_organization_id"
   end
 
-  add_foreign_key "comments", "event_home_pages"
   add_foreign_key "comments", "event_invitations"
+  add_foreign_key "comments", "events"
   add_foreign_key "event_dates", "events"
-  add_foreign_key "event_home_pages", "events"
   add_foreign_key "event_invitations", "events"
   add_foreign_key "event_invitations", "users"
   add_foreign_key "events", "organizations"
   add_foreign_key "events", "users"
   add_foreign_key "hyper_link_comments", "comments"
   add_foreign_key "image_comments", "comments"
-  add_foreign_key "image_event_pages", "event_home_pages"
+  add_foreign_key "image_event_pages", "events"
   add_foreign_key "image_organization_pages", "organizations"
   add_foreign_key "mail_boxes", "users"
   add_foreign_key "notifications", "event_invitations"
   add_foreign_key "organization_invitations", "organizations"
   add_foreign_key "organization_invitations", "users"
   add_foreign_key "organizations", "users"
-  add_foreign_key "pdf_event_pages", "event_home_pages"
+  add_foreign_key "pdf_event_pages", "events"
   add_foreign_key "pdf_organization_pages", "organizations"
   add_foreign_key "profile_pages", "users"
   add_foreign_key "received_messages", "mail_boxes"
   add_foreign_key "send_messages", "mail_boxes"
   add_foreign_key "user_votes", "event_dates"
   add_foreign_key "user_votes", "event_invitations"
-  add_foreign_key "video_event_pages", "event_home_pages"
+  add_foreign_key "video_event_pages", "events"
   add_foreign_key "video_organization_pages", "organizations"
 end

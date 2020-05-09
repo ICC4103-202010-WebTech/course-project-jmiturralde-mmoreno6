@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Notifications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <% if notification.notification_type == 0 %>
+          <p>You has been invited to an event</p>
+        <% elsif notification.notification_type == 1%>
+          <p>The date of the event has been define</p>
+        <% elsif notification.notification_type == 2%>
+          <p>The event has been cancel</p>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

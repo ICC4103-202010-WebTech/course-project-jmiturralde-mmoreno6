@@ -15,16 +15,19 @@
 
   <nav>
     <ul id="navbar">
-      <li><%= link_to 'Profile', user_profile_pages_path(1) %></li>
-      <li><%= link_to 'MailBox', user_mail_boxes_path(1) %></li>
-      <li><%= link_to 'Organizations', user_organizations_path(1) %></li>
-      <li><%= link_to 'Organizations Invitation', user_organization_invitations_path(1) %></li>
+      <li><%= link_to 'Profile', user_profile_pages_path(@user) %></li>
+      <li><%= link_to 'MailBox', user_mail_boxes_path(@user) %></li>
+      <li><%= link_to 'Organizations', user_organizations_path(@user) %></li>
+      <li><%= link_to 'Organizations Invitation', user_organization_invitations_path(@user) %></li>
+      <li><%= link_to 'Events', user_events_path(@user) %></li>
+      <li><%= link_to 'Events Invitation', user_event_invitations_path(@user) %></li>
+      <li><%= link_to 'Notifications', user_notifications_path(@user) %></li>
     </ul>
   </nav>
 
   <div id="container">
     <aside id="customer_info">
-      Welcome
+      <p>Welcome, <%= @user.username %></p>
     </aside>
 
 

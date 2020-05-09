@@ -6,7 +6,12 @@ Rails.application.routes.draw do
     resource :profile_pages, :mail_boxes
     resources :organizations, shallow: true
     resources  :organization_invitations, shallow: true
+    resources :events, shallow: true
+    resources  :event_invitations, shallow: true
+    resources :notifications
   end
 
-
+  resources :events do
+    resources :comments
+  end
 end

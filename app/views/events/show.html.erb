@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<img src="https://www.freeiconspng.com/uploads/no-image-icon-11.PNG" alt="HTML5 Icon">
+<h3><%= @event.title%></h3>
+<p>Description: <%= @event.description %></p>
+<p>Location: <%= @event.location %></p>
+<p>Created at: <%= @event.created_at %></p>
+
+<br>
+<%= link_to "See Comments", event_comments_path(@event) %>

@@ -1,3 +1,3 @@
 class ImageEventPage < ApplicationRecord
-  belongs_to :event_home_page
+  belongs_to :event
 end

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h3>My Created Events</h3>
+<% if @events != []%>
+  <table style="width: 70%">
+    <thead>
+    <tr>
+      <th>N</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Created at</th>
+      <th>Edit</th>
+    </tr>
+    </thead>
+    <% index = 1 %>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= link_to event.title, event_path(event.id) %></td>
+        <td><%= event.location %></td>
+        <td><%= event.created_at %></td>
+        <td><%= link_to "Edit", edit_event_path(event.id) %></td>
+      </tr>
+      <% index += 1 %>
+    <% end %>
+  </table>
+<%else %>
+  <p>You have not create an event yet :(</p>
+<% end %>
+
+<br>
+

@@ -10,6 +10,7 @@
     <tr>
       <th>N</th>
       <th>Name</th>
+      <th>Edit</th>
     </tr>
     </thead>
       <% index = 1 %>
@@ -17,6 +18,8 @@
         <tr>
           <td><%= index %></td>
           <td><%= link_to organization.name, organization_path(organization.id) %></td>
+          <td><%= link_to 'Edit', edit_organization_path(organization.id) %></td>
+
         </tr>
       <% index += 1 %>
       <% end %>
@@ -35,6 +38,7 @@
     <tr>
       <th>N</th>
       <th>Name</th>
+      <th>Edit</th>
     </tr>
     </thead>
     <% index = 1 %>
@@ -42,6 +46,7 @@
         <tr>
           <td><%= index %></td>
           <td><%= link_to organization.name, organization_path(organization.id) %></td>
+          <td><%= link_to 'Edit', edit_organization_path(organization.id) %></td>
         </tr>
       <% index += 1 %>
       <% end %>

@@ -5,11 +5,10 @@ class Event < ApplicationRecord
   has_many :users, :through => :event_invitations
   has_many :event_dates
   has_many :user_votes, :through => :event_dates
-  has_one :event_home_page
-  has_many :image_event_pages, :through => :event_home_page
-  has_many :video_event_pages, :through => :event_home_page
-  has_many :pdf_event_pages, :through => :event_home_page
-  has_many :comments, :through => :event_home_page
+  has_many :image_event_pages
+  has_many :video_event_pages
+  has_many :pdf_event_pages
+  has_many :comments
 
   after_initialize :default_values
 

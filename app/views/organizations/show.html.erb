@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h3>Events</h3>
+<img src="https://www.freeiconspng.com/uploads/no-image-icon-11.PNG" alt="HTML5 Icon">
+<h3><%= @organization.name%></h3>
+<p><%= @organization.description %></p>
+<p><%= @organization.created_at %></p>
 <% if @events_organization != []%>
 
   <table style="width: 70%">
@@ -25,4 +28,3 @@
   <p>This organization doesn't have any event :(</p>
 <% end %>
 <br>
-<%= link_to 'Back', user_organizations_path(1) %>
