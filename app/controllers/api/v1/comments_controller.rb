@@ -5,7 +5,6 @@ class Api::V1::CommentsController < ApiController
   # GET /comments.json
   def index
     @comments = Event.find(params[:event_id]).comments
-    end
   end
 
   # GET /comments/1
@@ -26,13 +25,13 @@ class Api::V1::CommentsController < ApiController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
+    @comment.event = Event.find(params[:event_id])
+    @comment.event_invitation = EventInvitation.find(params[:event_invitation_id])
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
+        format.json { render :show, status: :created, location: api_v1_comment_path(@comment) }
       else
-        format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
@@ -43,10 +42,8 @@ class Api::V1::CommentsController < ApiController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
+        format.json { render :show, status: :ok, location: api_v1_comment_path(@comment) }
       else
-        format.html { render :edit }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
@@ -57,7 +54,6 @@ class Api::V1::CommentsController < ApiController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -72,4 +68,4 @@ class Api::V1::CommentsController < ApiController
     def comment_params
       params.fetch(:comment, {}).permit(:id, :content, :commented_id, :event_invitation_id, :event_id, :created_at, :updated_at)
     end
-
+end
