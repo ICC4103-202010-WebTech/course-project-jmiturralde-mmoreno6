@@ -14,4 +14,12 @@ Rails.application.routes.draw do
   resources :events do
     resources :comments
   end
+
+  namespace :api, defaults: { format: :json} do
+    namespace :v1 do
+      resources :events do
+        resources :comments
+      end
+    end
+  end
 end

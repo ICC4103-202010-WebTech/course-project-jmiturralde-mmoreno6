@@ -1,14 +1,10 @@
-class CommentsController < ApplicationController
+class Api::V1::CommentsController < ApiController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /comments
   # GET /comments.json
   def index
     @comments = Event.find(params[:event_id]).comments
-    @events = Event.find(params[:event_id])
-    @users =[]
-    @comments.each do |comment|
-      @users.append(Comment.find(comment.id).event_invitation.user)
     end
   end
 
@@ -74,6 +70,6 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.fetch(:comment, {})
+      params.fetch(:comment, {}).permit(:id, :content, :commented_id, :event_invitation_id, :event_id, :created_at, :updated_at)
     end
-end
+
