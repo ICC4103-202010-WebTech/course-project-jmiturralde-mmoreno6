@@ -2,44 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="defb9cd1-f657-4276-92af-6aed7643295d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/custom.css.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/comments_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/comments_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/organization_invitations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/organization_invitations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/profile_pages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/profile_pages_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/comment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/comment.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/event.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/event_date.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event_date.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/event_invitation.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event_invitation.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/notification.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/notification.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/comments/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comments/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/event_invitations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/event_invitations/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/mail_boxes/index.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/mail_boxes/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/mail_boxes/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/notifications/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/notifications/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/organization_invitations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organization_invitations/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/organizations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/home.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/profile_pages/index.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/profile_pages/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profile_pages/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/webpack/environment.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack/environment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200418225338_add_event_invitation_id_to_notification.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +207,8 @@
       <workItem from="1589032426604" duration="10678000" />
       <workItem from="1589067928270" duration="2111000" />
       <workItem from="1589150298199" duration="10521000" />
-      <workItem from="1589200668507" duration="17470000" />
+      <workItem from="1589200668507" duration="17783000" />
+      <workItem from="1589218881528" duration="1220000" />
     </task>
     <servers />
   </component>
