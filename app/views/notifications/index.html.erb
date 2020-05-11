@@ -1,28 +1,21 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Notifications</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<br>
+<div class="card">
+  <ul class="list-group list-group-flush">
     <% @notifications.each do |notification| %>
       <tr>
         <% if notification.notification_type == 0 %>
-          <p>You has been invited to an event</p>
+          <li class="list-group-item">You has been invited to an event</li>
         <% elsif notification.notification_type == 1%>
-          <p>The date of the event has been define</p>
+          <li class="list-group-item">The date of the event has been defined</li>
         <% elsif notification.notification_type == 2%>
-          <p>The event has been cancel</p>
+          <li class="list-group-item">The event has been canceled</li>
         <% end %>
       </tr>
     <% end %>
-  </tbody>
-</table>
+  </ul>
+</div>
 
 <br>
 

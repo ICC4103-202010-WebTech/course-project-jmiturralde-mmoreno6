@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :events
   has_many :event_invitations
   has_many :events, :through => :event_invitations
-  has_many :notifications, :through => :event_invitations
+  has_many :notifications
   has_many :organizations
   has_many :organization_invitations
   has_many :organizations, :through => :organization_invitations

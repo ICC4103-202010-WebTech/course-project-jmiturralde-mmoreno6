@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Organizations</h1>
-
+<h1>My Organizations</h1>
+<br>
 <tbody>
 <h3>My Created Organizations</h3>
 <% if @organizations != []%>
-  <table style="width: 70%">
-    <thead>
-    <tr>
-      <th>N</th>
-      <th>Name</th>
-      <th>Edit</th>
-    </tr>
-    </thead>
-      <% index = 1 %>
-      <% @organizations.each do |organization| %>
-        <tr>
-          <td><%= index %></td>
-          <td><%= link_to organization.name, organization_path(organization.id) %></td>
-          <td><%= link_to 'Edit', edit_organization_path(organization.id) %></td>
-
-        </tr>
-      <% index += 1 %>
-      <% end %>
-  </table>
+  <div class="row">
+    <% @organizations.each do |organization| %>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= organization.name %></h5>
+            <p class="card-text">
+              <%= organization.description %>
+              <br>
+              <%= organization.created_at %>
+            </p>
+            <a href="<%= organization_path(organization.id) %>" class="btn btn-primary">View</a>
+            <a href="<%= edit_organization_path(organization.id) %>" class="btn btn-primary">Edit</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <%else %>
   <p>You have not create an organization yet</p>
 <% end %>
@@ -32,25 +30,24 @@
 
 <h3>Organization where I am admin</h3>
 <% if @organizations_admin != []%>
-
-  <table style="width: 70%">
-    <thead>
-    <tr>
-      <th>N</th>
-      <th>Name</th>
-      <th>Edit</th>
-    </tr>
-    </thead>
-    <% index = 1 %>
-      <% @organizations_admin.each do |organization| %>
-        <tr>
-          <td><%= index %></td>
-          <td><%= link_to organization.name, organization_path(organization.id) %></td>
-          <td><%= link_to 'Edit', edit_organization_path(organization.id) %></td>
-        </tr>
-      <% index += 1 %>
-      <% end %>
-  </table>
+  <div class="row">
+    <% @organizations_admin.each do |organization| %>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= organization.name %></h5>
+            <p class="card-text">
+              <%= organization.description %>
+              <br>
+              <%= organization.created_at %>
+            </p>
+            <a href="<%= organization_path(organization.id) %>" class="btn btn-primary">View</a>
+            <a href="<%= edit_organization_path(organization.id) %>" class="btn btn-primary">Edit</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% else %>
   <p>You are not admin of any organization :(</p>
 <% end %>

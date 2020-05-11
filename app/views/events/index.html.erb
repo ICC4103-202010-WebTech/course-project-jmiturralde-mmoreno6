@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
-
+<h1>My Events</h1>
+<br>
 <h3>My Created Events</h3>
+
 <% if @events != []%>
-  <table style="width: 70%">
-    <thead>
-    <tr>
-      <th>N</th>
-      <th>Name</th>
-      <th>Location</th>
-      <th>Created at</th>
-      <th>Edit</th>
-    </tr>
-    </thead>
-    <% index = 1 %>
+  <div class="row">
     <% @events.each do |event| %>
-      <tr>
-        <td><%= index %></td>
-        <td><%= link_to event.title, event_path(event.id) %></td>
-        <td><%= event.location %></td>
-        <td><%= event.created_at %></td>
-        <td><%= link_to "Edit", edit_event_path(event.id) %></td>
-      </tr>
-      <% index += 1 %>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= event.title %></h5>
+            <p class="card-text">
+              <%= event.location %>
+              <br>
+              <%= event.created_at %>
+            </p>
+            <a href="<%= event_path(event.id) %>" class="btn btn-primary">View</a>
+            <a href="<%= edit_event_path(event.id) %>" class="btn btn-primary">Edit</a>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </table>
+  </div>
+
 <%else %>
   <p>You have not create an event yet :(</p>
 <% end %>

@@ -50,9 +50,9 @@ VideoEventPage.create(event: e, video: "video1")
 PdfEventPage.create(event: e, pdf: "pdf1")
 
 ei1 = EventInvitation.create(user: u2, event: e, report:true)
-Notification.create(event_invitation: ei1, calendar: "Calendar1", notification_type: 0)
+Notification.create(user: u2, calendar: "Calendar1", notification_type: 0)
 ei2 = EventInvitation.create(user: u3, event: e, report: false)
-Notification.create(event_invitation: ei2, calendar: "Calendar2", notification_type: 0)
+Notification.create(user: u3, calendar: "Calendar2", notification_type: 0)
 c1 = Comment.create(event_invitation: ei1, event: e, content: "Comment1")
 ImageComment.create(comment: c1, image: "Image Comment1")
 HyperLinkComment.create(comment: c1, hyperlink: "Hyperlink1")
@@ -72,9 +72,9 @@ VideoEventPage.create(event: e, video: "video2")
 
 
 ei1 = EventInvitation.create(user: u2, event: e, report: false)
-Notification.create(event_invitation: ei1, calendar: "Calendar3", notification_type: 0)
+Notification.create(user: u2, calendar: "Calendar3", notification_type: 0)
 ei2 = EventInvitation.create(user: u3, event: e, report: false)
-Notification.create(event_invitation: ei2, calendar: "Calendar4", notification_type: 0)
+Notification.create(user: u3, calendar: "Calendar4", notification_type: 0)
 c1 = Comment.create(event_invitation: ei2, event: e, content: "Comment4")
 HyperLinkComment.create(comment: c1, hyperlink: "Hyperlink2")
 
@@ -90,7 +90,7 @@ PdfEventPage.create(event: e, pdf: "pdf2")
 PdfEventPage.create(event: e, pdf: "pdf3")
 
 ei1 = EventInvitation.create(user: u3, event: e, report: false)
-Notification.create(event_invitation: ei1, calendar: "Calendar5", notification_type: 0)
+Notification.create(user: u3, calendar: "Calendar5", notification_type: 0)
 Comment.create(event_invitation: ei1, event: e, content: "Comment5")
 Comment.create(event_invitation: ei1, event: e, content: "Comment6")
 

@@ -1,46 +1,78 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CourseProjectJmiturraldeMmoreno6</title>
+    <title>Event App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header>
-    <h1><%= link_to 'Events App', root_path%></h1>
-  </header>
+  <body>
 
-  <nav>
-    <ul id="navbar">
-      <li><%= link_to 'Profile', user_profile_pages_path(@user) %></li>
-      <li><%= link_to 'MailBox', user_mail_boxes_path(@user) %></li>
-      <li><%= link_to 'Organizations', user_organizations_path(@user) %></li>
-      <li><%= link_to 'Organizations Invitation', user_organization_invitations_path(@user) %></li>
-      <li><%= link_to 'Events', user_events_path(@user) %></li>
-      <li><%= link_to 'Events Invitation', user_event_invitations_path(@user) %></li>
-      <li><%= link_to 'Notifications', user_notifications_path(@user) %></li>
-    </ul>
-  </nav>
-
-  <div id="container">
-    <aside id="customer_info">
-      <p>Welcome, <%= @user.username %></p>
-    </aside>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 
 
-    <main>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= user_profile_pages_path(@user) %>">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= user_mail_boxes_path(@user) %>">MailBox</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Events
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="<%= user_events_path(@user) %>">My Events</a>
+              <a class="dropdown-item" href="<%= user_event_invitations_path(@user) %>">Upcoming Events</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Organizations
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="<%= user_organizations_path(@user) %>">My Organizations</a>
+              <a class="dropdown-item" href="<%= user_organization_invitations_path(@user) %>">Member Organizations</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= user_notifications_path(@user) %>">Notifications<span class="badge badge-dark"><%= @user.notifications.count %></span></a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          Welcome, <%= @user.username%>
+        </span>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
 
-      <%= yield %>
+    <div class="jumbotron">
 
-    </main>
+      <main class="container" role="main">
 
-  </div>
+        <%= yield %>
 
-  <footer>
-    <h4>Contact Information</h4>
-    <p>mmoreno6@miuandes.cl jmiturralde@miuandes.cl</p>
-  </footer>
+      </main>
+
+    </div>
+
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <span class="text-muted">Contact Information <br>mmoreno6@miuandes.cl jmiturralde@miuandes.cl</span>
+      </div>
+    </footer>
+  </body>
+
 </html>

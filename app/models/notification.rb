@@ -1,3 +1,3 @@
 class Notification < ApplicationRecord
-  belongs_to :event_invitation
+  belongs_to :user
 end

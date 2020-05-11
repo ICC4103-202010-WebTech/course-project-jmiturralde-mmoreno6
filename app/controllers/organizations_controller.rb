@@ -5,7 +5,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations.json
   def index
     @organizations = Organization.all.where("user_id = ?", params[:user_id])
-    @organizations_admin = OrganizationInvitation.joins(:organization).where("organization_invitations.user_id = ? AND admin = ?", params[:user_id],true).select("organizations.id, organizations.name as name, admin")
+    @organizations_admin = OrganizationInvitation.joins(:organization).where("organization_invitations.user_id = ? AND admin = ?", params[:user_id],true).select("organizations.id, organizations.name as name, admin, organizations.description as description, organizations.banner_picture as banner_picture, organizations.created_at")
   end
 
   # GET /organizations/1

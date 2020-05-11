@@ -4,7 +4,7 @@ class NotificationsController < ApplicationController
   # GET /notifications
   # GET /notifications.json
   def index
-    @notifications = User.find(params[:user_id]).notifications
+    @notifications = User.find(params[:user_id]).notifications.order("id DESC")
   end
 
   # GET /notifications/1

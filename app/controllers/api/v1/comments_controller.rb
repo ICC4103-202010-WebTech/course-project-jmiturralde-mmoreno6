@@ -52,9 +52,12 @@ class Api::V1::CommentsController < ApiController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    @comment.destroy
     respond_to do |format|
-      format.json { head :no_content }
+      if @comment.destroy
+        format.json { head :no_content }
+      else
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
     end
   end
 

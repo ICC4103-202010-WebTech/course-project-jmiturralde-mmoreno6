@@ -1,14 +1,14 @@
 class Event < ApplicationRecord
   belongs_to :organization, optional: true
   belongs_to :user
-  has_many :event_invitations
+  has_many :event_invitations, :dependent => :destroy
   has_many :users, :through => :event_invitations
-  has_many :event_dates
+  has_many :event_dates, :dependent => :destroy
   has_many :user_votes, :through => :event_dates
-  has_many :image_event_pages
-  has_many :video_event_pages
-  has_many :pdf_event_pages
-  has_many :comments
+  has_many :image_event_pages, :dependent => :destroy
+  has_many :video_event_pages, :dependent => :destroy
+  has_many :pdf_event_pages, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   after_initialize :default_values
 
@@ -16,4 +16,5 @@ class Event < ApplicationRecord
   def default_values
     self.hidden ||= false
   end
+
 end

@@ -1,25 +1,28 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Organization Invitations</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<h1>Organizations Memberships</h1>
+<br>
   <tbody>
-  <% if @organization_invited %>
-    <% @organization_invited.each do |organization| %>
-      <tr>
-        <td><%= link_to organization.name, organization_path(organization.id) %></td>
-
-      </tr>
-    <% end %>
-  <%end %>
-  </tbody>
-</table>
+  <% if @organization_invited != [] %>
+    <div class="row">
+      <% @organization_invited.each do |organization| %>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= organization.name %></h5>
+              <p class="card-text">
+                <%= organization.description %>
+                <br>
+                <%= organization.created_at %>
+              </p>
+              <a href="<%= organization_path(organization.id) %>" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <%else %>
+    <p>You have not create an organization yet</p>
+  <% end %>
 
 <br>
 

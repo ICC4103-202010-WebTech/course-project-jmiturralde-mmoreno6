@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_214944) do
+ActiveRecord::Schema.define(version: 2020_05_11_160042) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "commented_id"
@@ -102,8 +102,8 @@ ActiveRecord::Schema.define(version: 2020_05_08_214944) do
     t.integer "notification_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "event_invitation_id"
-    t.index ["event_invitation_id"], name: "index_notifications_on_event_invitation_id"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "organization_invitations", force: :cascade do |t|
@@ -220,7 +220,7 @@ ActiveRecord::Schema.define(version: 2020_05_08_214944) do
   add_foreign_key "image_event_pages", "events"
   add_foreign_key "image_organization_pages", "organizations"
   add_foreign_key "mail_boxes", "users"
-  add_foreign_key "notifications", "event_invitations"
+  add_foreign_key "notifications", "users"
   add_foreign_key "organization_invitations", "organizations"
   add_foreign_key "organization_invitations", "users"
   add_foreign_key "organizations", "users"

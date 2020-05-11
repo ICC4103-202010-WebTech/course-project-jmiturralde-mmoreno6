@@ -1,52 +1,60 @@
-<p id="notice"><%= notice %></p>
 
 <h1>MailBox</h1>
-
-<h2>Received Messages</h2>
-<table style="width: 70%">
-  <thead>
-  <tr>
-    <th>From</th>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Date</th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @received_messages.each do |message| %>
-    <tr>
-      <td><%= message.sender_username %></td>
-      <td><%= message.title %></td>
-      <td><%= message.body %></td>
-      <td><%= message.created_at %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
 <br>
-<h2>Send Messages</h2>
-<table style="width: 70%">
-  <thead>
-  <tr>
-    <th>To</th>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Date</th>
+<h2>Messages Received</h2>
+<section class="content inbox">
+  <div class="container-fluid">
+    <div class="row clearfix">
+      <div class="col-md-12 col-lg-12 col-xl-12">
+        <ul class="mail_list list-group list-unstyled">
 
-  </tr>
-  </thead>
+          <% @received_messages.each do |message| %>
+            <li class="list-group-item">
+              <div class="media">
 
-  <tbody>
-  <% @send_messages.each do |message| %>
-    <tr>
-      <td><%= message.receiver_username %></td>
-      <td><%= message.title %></td>
-      <td><%= message.body %></td>
-      <td><%= message.created_at %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+                <div class="media-body">
+                  <div class="media-heading">
+                    <a class="m-r-10"><%= message.title %></a>
+                    <span class="badge bg-blue">TO: <%= message.sender_username %></span>
+                    <small class="float-right text-muted"><time class="hidden-sm-down" datetime="2017"><%= message.created_at.strftime("%d %h %Y at %I:%M%p") %></time><i class="zmdi zmdi-attachment-alt"></i> </small>
+                  </div>
+                  <p class="msg"><%= message.body %></p>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 <br>
-<%= link_to 'Back', root_path %>
+
+<h2>Messages Send</h2>
+<section class="content inbox">
+  <div class="container-fluid">
+    <div class="row clearfix">
+      <div class="col-md-12 col-lg-12 col-xl-12">
+        <ul class="mail_list list-group list-unstyled">
+
+          <% @send_messages.each do |message| %>
+            <li class="list-group-item">
+              <div class="media">
+                <div class="media-body">
+                  <div class="media-heading">
+                    <a class="m-r-10"><%= message.title %></a>
+                    <span class="badge bg-blue">FROM: <%= message.receiver_username %></span>
+                    <small class="float-right text-muted"><time class="hidden-sm-down" datetime="2017"><%= message.created_at.strftime("%d %h %Y at %I:%M%p") %></time><i class="zmdi zmdi-attachment-alt"></i> </small>
+                  </div>
+                  <p class="msg"><%= message.body %></p>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+

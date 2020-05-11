@@ -1,25 +1,29 @@
-<p id="notice"><%= notice %></p>
+<h1>My Upcoming Events</h1>
+<br>
 
-<h1>Event Invitations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <% if @event_invitations %>
+<% if @event_invitations != []%>
+  <div class="row">
     <% @event_invitations.each do |event| %>
-      <tr>
-        <td><%= link_to event.title, event_path(event.id) %></td>
-
-      </tr>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= event.title %></h5>
+            <p class="card-text">
+              <%= event.location %>
+              <br>
+              <%= event.created_at %>
+            </p>
+            <a href="<%= event_path(event.id) %>" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
     <% end %>
-  <%end %>
-  </tbody>
-</table>
+  </div>
+
+<%else %>
+  <p>You haven't been invited to an event yet :(</p>
+<% end %>
 
 <br>
 

@@ -2,22 +2,19 @@
 
 <h1>Comments</h1>
 
-<table>
-
-  <tbody>
+<div class="card">
+  <ul class="list-group list-group-flush">
   <% if @comments != []%>
     <% @comments.zip(@users).each do |comment, user|%>
       <tr>
-        <td><%= user.username %> says: </td>
-        <td><%= comment.content %></td>
-      </tr>
+        <li class="list-group-item"><%= user.username %> says: <%= comment.content %></li>
     <% end %>
 
   <% else %>
   <p>This event doesn't have any comments</p>
   <% end %>
-  </tbody>
-</table>
+  </ul>
+</div>
 
 <br>
 <%= link_to 'Back',  event_path(@events)%>
