@@ -1,5 +1,10 @@
-<h1>Editing Profile Page</h1>
+<div class="row ml-0 mt-3">
+  <h2>Edit Profile Page</h2>
+</div>
+<div class="row ml-0 mt-2">
+  <p>Please enter the required information to edit the "<%=@profile_page.name%>" profile:</p>
+</div>
 
-<p>You are not required to implement this page yet</p>
+<%= render 'form', locals: { user: @user, profile_pages: @profile_page } %>
 
 <%= link_to 'Back', user_profile_pages_path %>

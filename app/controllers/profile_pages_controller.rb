@@ -18,6 +18,7 @@ class ProfilePagesController < ApplicationController
 
   # GET /profile_pages/1/edit
   def edit
+    @user = User.find(params[:user_id])
   end
 
   # POST /profile_pages
@@ -44,7 +45,7 @@ class ProfilePagesController < ApplicationController
         format.html { redirect_to @profile_page, notice: 'Profile page was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile_page }
       else
-        format.html { render :edit }
+        format.html { render root_path }
         format.json { render json: @profile_page.errors, status: :unprocessable_entity }
       end
     end
@@ -68,6 +69,6 @@ class ProfilePagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def profile_page_params
-      params.fetch(:profile_page, {})
+      params.fetch(:profile_page, {}).permit(:name, :last_name, :bio, :location)
     end
 end
