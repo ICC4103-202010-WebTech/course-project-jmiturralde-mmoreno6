@@ -13,6 +13,8 @@ class EventInvitationsController < ApplicationController
 
   # GET /event_invitations/new
   def new
+    byebug
+    @event = Event.find(params[:event_id])
     @event_invitation = EventInvitation.new
   end
 
@@ -68,6 +70,6 @@ class EventInvitationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_invitation_params
-      params.fetch(:event_invitation, {})
+      params.fetch(:event_invitation, {}).permit( :user_id, :event_id, :report)
     end
 end

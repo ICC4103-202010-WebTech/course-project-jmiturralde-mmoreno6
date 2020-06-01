@@ -54,9 +54,13 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event.destroy
-    redirect_back(fallback_location: root_path)
-    flash[:alert] = "The event has been destroyed"
+    begin
+      @event.destroy
+      redirect_back(fallback_location: root_path)
+      flash[:notice] = "The event has been destroyed"
+    rescue
+      flash[:alert] = "Could not delete the event!"
+    end
   end
 
   private

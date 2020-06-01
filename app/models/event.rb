@@ -9,6 +9,7 @@ class Event < ApplicationRecord
   has_many :video_event_pages, :dependent => :destroy
   has_many :pdf_event_pages, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  accepts_nested_attributes_for :event_invitations, allow_destroy: true
 
   after_initialize :default_values
 
