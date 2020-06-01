@@ -15,4 +15,5 @@ class EventInvitation < ApplicationRecord
   def send_notification_event_delete
     Notification.create(user: self.user, notification_type: 2)
   end
+
 end

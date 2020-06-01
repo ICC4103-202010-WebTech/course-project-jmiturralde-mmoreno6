@@ -13,7 +13,6 @@ class EventInvitationsController < ApplicationController
 
   # GET /event_invitations/new
   def new
-    byebug
     @event = Event.find(params[:event_id])
     @event_invitation = EventInvitation.new
   end
@@ -25,18 +24,23 @@ class EventInvitationsController < ApplicationController
   # POST /event_invitations
   # POST /event_invitations.json
   def create
-    @event_invitation = EventInvitation.new(event_invitation_params)
-
-    respond_to do |format|
-      if @event_invitation.save
-        format.html { redirect_to @event_invitation, notice: 'Event invitation was successfully created.' }
-        format.json { render :show, status: :created, location: @event_invitation }
-      else
-        format.html { render :new }
-        format.json { render json: @event_invitation.errors, status: :unprocessable_entity }
+    if EventInvitation.exists?(user_id: params[:event_invitation][:user_id], event_id: params[:event_id])
+      redirect_back(fallback_location: root_path)
+      flash[:alert] = "The user was already invited"
+    else
+      @event = Event.find(params[:event_id])
+      @event_invitation = EventInvitation.new(event_invitation_params)
+      @event_invitation.event = @event
+      respond_to do |format|
+        if @event_invitation.save
+          format.html { redirect_to @event, notice: 'Event invitation was successfully created.' }
+        else
+          format.html { render :new }
+          format.json { render json: @event_invitation.errors, status: :unprocessable_entity }
+        end
       end
     end
-  end
+    end
 
   # PATCH/PUT /event_invitations/1
   # PATCH/PUT /event_invitations/1.json
@@ -72,4 +76,5 @@ class EventInvitationsController < ApplicationController
     def event_invitation_params
       params.fetch(:event_invitation, {}).permit( :user_id, :event_id, :report)
     end
+
 end

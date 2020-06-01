@@ -1,11 +1,50 @@
-<p id="notice"><%= notice %></p>
-
-<img src="https://www.freeiconspng.com/uploads/no-image-icon-11.PNG" alt="HTML5 Icon">
-<%= link_to "Send New Invitation", new_user_event_invitation_path(@event), class: ["btn", "btn-primary"] %>
+<div>
+  <% if @event.event_picture.attached? %>
+    <div  data-toggle="modal" data-target="#exampleModal" style="width:400px; hight:auto">
+      <%= image_tag(@event.event_picture, style:"width:100%") %>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width:800px">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><%=@event.title + ' Banner Picture' %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="width:800px; hight:auto">
+            <%= image_tag(@event.event_picture, style:"width:100%") %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <h3><%= @event.title%></h3>
 <p>Description: <%= @event.description %></p>
 <p>Location: <%= @event.location %></p>
 <p>Created at: <%= @event.created_at %></p>
-
+  <h3>Event Images</h3>
+  <% (0...@event.images.count).each do |image|  %>
+    <%= image_tag(@event.images[image], style: 'width:300px; height: auto') %>
+  <% end %>
+  <br>
+  <h3>Event Videos</h3>
+  <% (0...@event.videos.count).each do |video|  %>
+    <video width="320" height="240" controls>
+      <source src=<%= rails_blob_path(@event.videos[video]) %> type="video/mp4" />
+    </video>
+  <% end %>
+  <br>
+  <h3>Event Documents</h3>
+  <% (0...@event.documents.count).each do |doc|  %>
+      <%= link_to "Document " + (doc+1).to_s, rails_blob_path(@event.documents[doc]), target: :_blank %>
+  <% end %>
+</div>
 <br>
-<%= link_to "See Comments", event_comments_path(@event) %>
+<div>
+  <%= link_to "See Comments", event_comments_path(@event), class: ["btn", "btn-primary"] %>
+  <%= link_to "Send New Invitation", new_event_event_invitation_path(@event), class: ["btn", "btn-primary"] %>
+</div>

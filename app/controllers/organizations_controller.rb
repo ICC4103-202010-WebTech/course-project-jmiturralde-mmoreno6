@@ -11,7 +11,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    @events_organization = Event.all.where("organization_id = ? AND hidden = 'false'", params[:id])
+    @events_organization = Event.all.where("organization_id = ? AND hidden = 0", params[:id])
   end
 
   # GET /organizations/new
@@ -71,6 +71,7 @@ class OrganizationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def organization_params
-      params.fetch(:organization, {}).permit(:id, :name, :description)
+      params.fetch(:organization, {}).permit(:id, :name, :description, :organization_picture,
+                                                 documents: [], videos: [], images: [])
     end
 end

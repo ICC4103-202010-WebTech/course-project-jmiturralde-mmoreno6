@@ -1,5 +1,5 @@
 <div class="row ml-0 mt-3">
-  <h2>Sending a invitation to "<%= @event.name %>"</h2>
+  <h2>Sending a invitation to "<%= @event.title %>"</h2>
 </div>
 <div class="row ml-0 mt-2">
   <p>Please enter the required information to create a new invitation for the event:</p>
@@ -8,5 +8,4 @@
 
 <%= render 'form', locals: { event: @event, event_invitation: @event_invitation } %>
 
-<%= link_to 'Back', event_invitations_path %>
 </div>
