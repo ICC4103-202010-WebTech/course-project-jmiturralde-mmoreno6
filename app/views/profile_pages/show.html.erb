@@ -23,5 +23,28 @@
     </div>
   </div>
 </section>
+<br>
+<h4>My created events</h4>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <% @events.each do |event| %>
+      <tr>
+        <li class="list-group-item"><%=  link_to event.title, event_path(event) %></li>
+      </tr>
+    <% end %>
+  </ul>
 </div>
+<br>
+<h4>My Event Invitations</h4>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <% @event_invitations.each do |event| %>
+      <tr>
+        <li class="list-group-item"><%= link_to event.title, event_path(event) %></li>
+      </tr>
+    <% end %>
+  </ul>
+</div>
+</div>
+
 

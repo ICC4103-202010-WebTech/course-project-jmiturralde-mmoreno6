@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="defb9cd1-f657-4276-92af-6aed7643295d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/views/pages/search.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/profile_pages/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profile_pages/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/pages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/pages_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/profile_pages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/profile_pages_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/events/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organizations/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organizations/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organizations/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/profile_pages/_form.html.erb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/profile_pages/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profile_pages/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db:rollback" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/profile_pages/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profile_pages/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,21 +75,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../U/2020 - 1°Semestre/Web Technologies/Labs/Lab 8/lab8-lab8-mmoreno6-jmiturralde" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/profile_pages" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/views/api/v1/comments" />
-      <recent name="$PROJECT_DIR$/app/views/api/v1" />
-      <recent name="$PROJECT_DIR$/app/controllers/api/v1" />
-      <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/pages" />
       <recent name="$PROJECT_DIR$/app/models" />
       <recent name="$PROJECT_DIR$/app/models/organization" />
       <recent name="$PROJECT_DIR$/app/models/user" />
       <recent name="$PROJECT_DIR$/app/models/mailbox" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/profile_pages" />
+      <recent name="$PROJECT_DIR$/app/views/api/v1/comments" />
+      <recent name="$PROJECT_DIR$/app/views/api/v1" />
+      <recent name="$PROJECT_DIR$/app/controllers/api/v1" />
+      <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: course-project-jmiturralde-mmoreno6">
@@ -221,10 +234,15 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="141" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588884557371">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state x="1507" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590964281641">
+      <screen x="1366" y="0" width="1366" height="768" />
     </state>
     <state x="141" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog/1366.0.1366.768/0.27.1366.741@0.27.1366.741" timestamp="1588884557371" />
+    <state x="1507" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1590964281641" />
+    <state x="1815" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590958115870">
+      <screen x="1366" y="0" width="1366" height="768" />
+    </state>
+    <state x="1815" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1590958115870" />
     <state x="511" y="141" width="424" height="484" key="FileChooserDialogImpl" timestamp="1590951792818">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -279,6 +297,10 @@
       <screen x="1366" y="0" width="1366" height="768" />
     </state>
     <state width="1253" height="560" key="GridCell.Tab.2.right/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1588910862714" />
+    <state x="1433" y="27" width="683" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590967747945">
+      <screen x="1366" y="0" width="1366" height="768" />
+    </state>
+    <state x="1433" y="27" width="683" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1590967747945" />
     <state x="451" y="303" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589156551657">
       <screen x="0" y="27" width="1366" height="741" />
     </state>

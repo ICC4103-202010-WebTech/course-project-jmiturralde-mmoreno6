@@ -17,4 +17,9 @@ class User < ApplicationRecord
   def default_values
     self.system_admin ||= false
   end
+  def self.search(search)
+    if search
+      user_name = self.find_by(user_name: search)
+    end
+  end
 end

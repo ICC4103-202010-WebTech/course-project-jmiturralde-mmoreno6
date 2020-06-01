@@ -51,8 +51,8 @@
           <span class="navbar-text">
             Welcome, <%= @user.username %>
           </span>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <form class="form-inline my-2 my-lg-0" action="/search">
+            <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
@@ -61,6 +61,16 @@
 
     <div class="jumbotron">
       <main class="container">
+        <% if notice.present? %>
+          <div class="row ml-0 mt-3" role="alert">
+            <div id="notice" class="alert alert-success"><%= notice %></div>
+          </div>
+        <% end %>
+        <% if alert.present? %>
+          <div class="row ml-0 mt-3" role="alert">
+            <div id="alert" class="alert alert-danger"><%= alert %></div>
+          </div>
+        <% end %>
         <%= yield %>
       </main>
     </div>

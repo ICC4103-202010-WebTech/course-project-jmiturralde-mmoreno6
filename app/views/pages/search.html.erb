@@ -1,0 +1,69 @@
+<h1> Search Results</h1>
+
+<h3>Users found</h3>
+<h4>Users by username</h4>
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <% @users.each do |user| %>
+        <tr>
+          <li class="list-group-item"><%= user.username %></li>
+        </tr>
+      <% end %>
+  </ul>
+</div>
+
+<h4>Users by name</h4>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <% @profile_pages.each do |profile| %>
+      <tr>
+        <li class="list-group-item"><%= profile.name %></li>
+      </tr>
+    <% end %>
+  </ul>
+</div>
+
+<h3>Organizations found</h3>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <% @organizations.each do |organization| %>
+      <tr>
+        <li class="list-group-item"><%= organization.name %></li>
+      </tr>
+    <% end %>
+  </ul>
+</div>
+
+<h3>Events found</h3>
+<h4> Events by title/description</h4>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <% @events.each do |event| %>
+      <tr>
+        <li class="list-group-item"><%= event.title %></li>
+      </tr>
+    <% end %>
+  </ul>
+</div>
+
+<h4>Events by creator</h4>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <% @event_creators.each do |event| %>
+      <tr>
+        <li class="list-group-item"><%= event.title %></li>
+      </tr>
+    <% end %>
+  </ul>
+</div>
+
+<h4>Events by organizations</h4>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <% @organization_creators.each do |event| %>
+      <tr>
+        <li class="list-group-item"><%= event.title %></li>
+      </tr>
+    <% end %>
+  </ul>
+</div>

@@ -6,7 +6,8 @@
 </div>
 
 <div class="row">
-  <%= form_with(model: @profile_page, url: [@user, @profile_pages]) do |form| %>
+  <%= form_for @profile_page, url: user_profile_pages_url, scope: "profile_page" do |form| %>
+
     <div class="form-group">
       <%= form.label :name %>
       <%= form.text_field :name, class: "form-control" %>
@@ -27,7 +28,7 @@
       <%= form.submit class: ["btn", "btn-primary"]%>
       <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
     </div>
-  <% end %>
+      <% end %>
 </div>
 
 <%= link_to 'Back', user_profile_pages_path %>

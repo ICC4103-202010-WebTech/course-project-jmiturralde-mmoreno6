@@ -9,6 +9,8 @@ class ProfilePagesController < ApplicationController
   # GET /profile_pages/1.json
   def show
     @user = User.find(params[:user_id])
+    @event_invitations = User.find(params[:user_id]).events
+    @events = Event.all.where("user_id = ?", params[:user_id])
   end
 
   # GET /profile_pages/new
@@ -42,7 +44,7 @@ class ProfilePagesController < ApplicationController
   def update
     respond_to do |format|
       if @profile_page.update(profile_page_params)
-        format.html { redirect_to @profile_page, notice: 'Profile page was successfully updated.' }
+        format.html { redirect_to user_profile_pages_path(@profile_page.user), notice: 'Profile page was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile_page }
       else
         format.html { render root_path }
@@ -69,6 +71,6 @@ class ProfilePagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def profile_page_params
-      params.fetch(:profile_page, {}).permit(:name, :last_name, :bio, :location)
+      params.fetch(:profile_page, {}).permit(:id, :name, :last_name, :bio, :location)
     end
 end
