@@ -3,25 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="defb9cd1-f657-4276-92af-6aed7643295d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/event_invitations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/event_invitations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/profile_pages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/profile_pages_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/event.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/event_invitation.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event_invitation.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/organization.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/organization.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/profile_page.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/profile_page.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/event_invitations/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/event_invitations/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/event_invitations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/event_invitations/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/organizations/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/organizations/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/profile_pages/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profile_pages/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/profile_pages/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profile_pages/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/pages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/pages_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/pages/search.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/search.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/profile_pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab9-lab9-mmoreno6-jmiturralde" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
@@ -233,6 +216,7 @@
       <workItem from="1590937879283" duration="7435000" />
       <workItem from="1591017191573" duration="10480000" />
       <workItem from="1591043194446" duration="8587000" />
+      <workItem from="1591055984531" duration="15074000" />
     </task>
     <servers />
   </component>
@@ -249,10 +233,10 @@
       <screen x="1366" y="0" width="1366" height="768" />
     </state>
     <state x="1815" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1590958115870" />
-    <state x="511" y="141" width="424" height="484" key="FileChooserDialogImpl" timestamp="1590951792818">
+    <state x="511" y="141" width="424" height="484" key="FileChooserDialogImpl" timestamp="1591056283663">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="511" y="141" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1590951792818" />
+    <state x="511" y="141" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1591056283663" />
     <state x="454" y="154" key="FileChooserDialogImpl/1366.0.1366.768/0.27.1366.741@0.27.1366.741" timestamp="1589511693791" />
     <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1587600156623" />
     <state width="1253" height="560" key="GridCell.Tab.0.bottom" timestamp="1588910862713">
