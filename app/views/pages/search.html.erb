@@ -1,7 +1,7 @@
 <h1> Search Results</h1>
 
 <%if (@users||@distinct_profile_pages) != []%>
-  <h3>Users found</h3>
+  <h3>Users found <span class="badge"><%=@countt=(@users.count +@distinct_profile_pages.count) %></span></h3>
   <div class="row">
     <% @users.each do |user| %>
       <div class="col-sm-4">
@@ -46,10 +46,10 @@
 </div>
 
 <%if (@organizations) != []%>
-  <h3>Organizations found</h3>
+  <h3>Organizations found <span class="badge"><%=@organizations.count %></span></h3>
     <div class="row">
       <% @organizations.each do |organization| %>
-        <div class="col-sm-4">
+        <div class="col-sm-12">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-none d-lg-block">
               <% if organization.organization_picture.attached? %>
@@ -71,10 +71,10 @@
 <div class="card" >
 </div>
 <%if (@events&&@distinct_event_creators) != []%>
-  <h3>Events found</h3>
+  <h3>Events found <span class="badge"><%= @count=(@events.count + @distinct_event_creators.count) %></span></h3>
   <div class="row">
     <% @events.each do |event| %>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-none d-lg-block">
             <% if event.event_picture.attached? %>
@@ -85,14 +85,14 @@
           </div>
           <div class="col p-4 d-flex flex-column position-static">
             <h4 class="mb-0"><%= event.title %></h4><br>
-            <div class="mb-1 text-muted">Creator: <%= event.user_id%></div>
-            <div class="mb-1 text-muted">Location: <%= event.location%></div>
+            <div class="mb-1 text-muted">Creator: <%= @all_profile_pages.where("user_id=?",event.user_id)[0].name%></div>
+            <div class="mb-1 text-muted">Description: <%= event.description%></div>
           </div>
         </div>
       </div>
     <%end %>
     <% @distinct_event_creators.each do |creator| %>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-none d-lg-block">
             <% if creator.event_picture.attached? %>
@@ -103,8 +103,8 @@
           </div>
           <div class="col p-4 d-flex flex-column position-static">
             <h4 class="mb-0"><%= creator.title %></h4><br>
-            <div class="mb-1 text-muted">Creator: <%= creator.user_id%></div>
-            <div class="mb-1 text-muted">Location: <%= creator.location%></div>
+            <div class="mb-1 text-muted">Creator: <%= @all_profile_pages.where("user_id=?",creator.user_id)[0].name%></div>
+            <div class="mb-1 text-muted">Description: <%= creator.description%></div>
           </div>
         </div>
       </div>
@@ -113,10 +113,10 @@
 <%end %>
 
 <%if (@event_organization) != []%>
-  <h3>Events by organization</h3>
+  <h3>Events by organization <span class="badge"><%=@event_organization.count  %></span></h3>
     <div class="row">
       <% @event_organization.each do |organization| %>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-none d-lg-block">
               <% if organization.event_picture.attached? %>
@@ -127,8 +127,8 @@
             </div>
             <div class="col p-4 d-flex flex-column position-static">
               <h4 class="mb-0"><%= organization.title %></h4><br>
-              <div class="mb-1 text-muted">Creator: <%= organization.organization_id%></div>
-              <div class="mb-1 text-muted">Location: <%= organization.location%></div>
+              <div class="mb-1 text-muted">Organization: <%= @all_organizations.where("id=?",organization.organization_id)[0].name%></div>
+              <div class="mb-1 text-muted">Description: <%= organization.description%></div>
             </div>
           </div>
         </div>

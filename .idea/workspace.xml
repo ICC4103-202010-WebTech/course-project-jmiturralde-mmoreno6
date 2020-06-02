@@ -62,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab9-lab9-mmoreno6-jmiturralde" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
@@ -216,7 +216,8 @@
       <workItem from="1590937879283" duration="7435000" />
       <workItem from="1591017191573" duration="10480000" />
       <workItem from="1591043194446" duration="8587000" />
-      <workItem from="1591055984531" duration="15074000" />
+      <workItem from="1591055984531" duration="15321000" />
+      <workItem from="1591110171717" duration="2286000" />
     </task>
     <servers />
   </component>

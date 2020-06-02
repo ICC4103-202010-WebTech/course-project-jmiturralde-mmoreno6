@@ -54,6 +54,9 @@ class PagesController < ApplicationController
       @temp.each do |t|
         @event_organization.append(t)
       end
-      end
+    end
+
+    @all_profile_pages=ProfilePage.all
+    @all_organizations=Organization.all
   end
 end
