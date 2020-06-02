@@ -1,0 +1,23 @@
+<h1>Event Dates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event_dates.each do |event_date| %>
+      <tr>
+        <td><%= event_date.event_date %></td>
+        <td><%= link_to 'Destroy', event_event_date_path(event_date.event.id, event_date.id), class: 'btn btn-danger', method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create', new_event_event_date_path(), class: 'btn btn-primary'%>
+<%= link_to 'Back', user_events_path(@creator_user), class: 'btn btn-secondary'%>

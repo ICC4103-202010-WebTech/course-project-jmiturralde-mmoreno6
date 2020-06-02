@@ -19,6 +19,11 @@ Rails.application.routes.draw do
   resources :events do
     resources :comments
     resources :event_invitations
+    resources :event_dates
+  end
+
+  resources :event_invitations do
+    resources :user_votes
   end
 
   namespace :api, defaults: { format: :json} do

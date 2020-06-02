@@ -35,7 +35,7 @@ class OrganizationInvitationsController < ApplicationController
       @organization_invitation.organization = @organization
       respond_to do |format|
         if @organization_invitation.save
-          format.html { redirect_to fallback_location: root_path, notice: 'Organization invitation was successfully created.' }
+          format.html { redirect_to @organization, notice: 'Organization invitation was successfully created.' }
         else
           format.html { render :new }
           format.json { render json: @organization_invitation.errors, status: :unprocessable_entity }

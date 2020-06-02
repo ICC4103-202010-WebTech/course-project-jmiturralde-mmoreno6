@@ -3,17 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="defb9cd1-f657-4276-92af-6aed7643295d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/event_invitations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/event_invitations_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/organization_invitations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/organization_invitations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/organization.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/organization.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/event_invitations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/event_invitations/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/events/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/organization_invitations/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organization_invitations/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/organization_invitations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organization_invitations/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/organizations/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/organizations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/profile_pages/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profile_pages/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -302,11 +297,11 @@
       <screen x="1366" y="0" width="1366" height="768" />
     </state>
     <state x="1433" y="27" width="683" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1590967747945" />
-    <state x="451" y="303" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589156551657">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state x="1817" y="286" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591140982277">
+      <screen x="1366" y="0" width="1366" height="768" />
     </state>
     <state x="451" y="303" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1366.0.1366.768/0.27.1366.741@0.27.1366.741" timestamp="1589156551657" />
-    <state x="1817" y="286" width="464" height="166" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1589068081125" />
+    <state x="1817" y="286" width="464" height="166" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1591140982277" />
     <state x="1617" y="115" width="920" height="562" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1588904863692">
       <screen x="1366" y="0" width="1366" height="768" />
     </state>

@@ -17,6 +17,7 @@
             <a href="<%= event_path(event.id) %>" class="btn btn-primary">View</a>
             <a href="<%= edit_event_path(event.id) %>" class="btn btn-primary">Edit</a>
             <a href="<%= new_event_event_invitation_path(event.id) %>" class="btn btn-primary">Invite</a>
+            <a href="<%= event_event_dates_path(event.id) %>" class="btn btn-primary">Event Date</a>
             <%= link_to 'Destroy', event_path(event.id), class: 'btn btn-danger', method: :delete %>
           </div>
         </div>

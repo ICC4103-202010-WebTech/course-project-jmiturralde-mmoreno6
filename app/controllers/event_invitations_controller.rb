@@ -5,6 +5,7 @@ class EventInvitationsController < ApplicationController
   # GET /event_invitations.json
   def index
     @event_invitations = User.find(params[:user_id]).events
+    @user = User.find(params[:user_id])
   end
   # GET /event_invitations/1
   # GET /event_invitations/1.json

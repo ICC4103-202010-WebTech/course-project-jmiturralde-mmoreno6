@@ -15,6 +15,7 @@
               <%= event.created_at %>
             </p>
             <a href="<%= event_path(event.id) %>" class="btn btn-primary">View</a>
+            <a href="<%= new_event_invitation_user_vote_path(@user.event_invitations.find_by(event: event.id).id) %>" class="btn btn-primary">Go to Vote</a>
           </div>
         </div>
       </div>

@@ -1,0 +1,22 @@
+<%= form_with(model: [@event, @event_date], local: true) do |form| %>
+  <% if @event_date.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event_date.errors.count, "error") %> prohibited this event_date from being saved:</h2>
+
+      <ul>
+        <% @event_date.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :event_date %>
+    <%= form.datetime_local_field :event_date %>
+  </div>
+  <div class="form-group">
+    <%= form.submit class: ["btn", "btn-primary"] %>
+    <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
+  </div>
+<% end %>
