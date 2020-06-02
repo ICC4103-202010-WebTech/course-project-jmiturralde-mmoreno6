@@ -1,5 +1,11 @@
-<h1>New Organization Invitation</h1>
+<div class="row ml-0 mt-3">
+  <h2>Sending a invitation to "<%= @organization.name %>"</h2>
+</div>
+<div class="row ml-0 mt-2">
+  <p>Please enter the required information to create a new invitation for the organization:</p>
+</div>
+<div class="row ml-0 mt-2">
 
-<%= render 'form', organization_invitation: @organization_invitation %>
+  <%= render 'form', locals: { organization: @organization, organization_invitation: @organization_invitation } %>
 
-<%= link_to 'Back', organization_invitations_path %>
+</div>

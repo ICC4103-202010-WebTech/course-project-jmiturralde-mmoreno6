@@ -1,13 +1,18 @@
+<div class="row mb-3">
+  <div class="col-md-11">
+    <h1>My Profile</h1>
+  </div>
+  <div class="col-md-1">
+    <a href="<%= edit_user_profile_pages_path(@profile_page) %>" class="btn btn-primary">Edit</a>
+  </div>
 
-<h1>My Profile</h1>
 <br>
-<section class="panel">
-  <div class="panel-body profile-wrapper">
-    <div class="col-md-3">
+</div>
+<div class="row mb-2" >
+    <div class="col-md-5">
       <div class="profile-pic text-center">
-
         <% if @profile_page.picture.attached? %>
-          <div  data-toggle="modal" data-target="#exampleModal" style="width:400px; hight:auto">
+          <div data-toggle="modal" data-target="#exampleModal" style="width:400px; hight:auto">
           <%= image_tag(@profile_page.picture, style:"width:100%") %>
           </div>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -31,21 +36,15 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-7">
       <div class="profile-info">
-        <h3><%= @profile_page.name + " " + @profile_page.last_name %></h3>
-        <span class="text-muted"><%= @user.username %>, </span>
-        <span class="text-muted">from <%= @profile_page.location %></span>
-        <p>
-          <%= @profile_page.bio %>
-        </p>
-        <div class="connect">
-          <a href="<%= edit_user_profile_pages_path(@profile_page) %>" class="btn btn-success">Edit</a>
-        </div>
+        <h3 class="display-3"><%= @profile_page.name + " " + @profile_page.last_name %></h3>
+        <h3 class="display-5"><%= "@" + @user.username %></h3><br><br>
+        <p class="font-italic"><%= "Location:  " + @profile_page.location %></p>
+        <p class="font-italic"><%= "Short bio: " + @profile_page.bio %></p>
       </div>
     </div>
-  </div>
-</section>
+</div>
 <br>
 <h4>My created events</h4>
 <div class="card">

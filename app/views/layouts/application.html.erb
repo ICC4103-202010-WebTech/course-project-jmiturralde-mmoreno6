@@ -48,7 +48,7 @@
               <a class="nav-link" href=<%= user_notifications_path(@user) %>>Notifications<span class="badge badge-dark"><%= @user.notifications.count %></span></a>
             </li>
           </ul>
-          <span class="navbar-text">
+          <span class="navbar-text mr-3">
             Welcome, <%= @user.username %>
           </span>
           <form class="form-inline my-2 my-lg-0" action="/search">

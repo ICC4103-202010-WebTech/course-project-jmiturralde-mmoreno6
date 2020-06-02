@@ -41,6 +41,20 @@
       <br>
       <%= form.file_field :images, multiple: true %>
     </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"> Delete Invitation To: </h5>
+        <hr>
+        <%=form.fields_for :organization_invitations do |organization_invitations_form| %>
+          <div class="form-group">
+            <% if action_name == 'edit' %>
+              <%= organization_invitations_form.label organization_invitations_form.object.user.username %>
+              <%= organization_invitations_form.check_box :_destroy %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
     <%= form.submit class: ["btn", "btn-primary"]%>
     <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>

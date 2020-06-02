@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     resources :notifications
   end
 
+  resources :organizations do
+    resources :organization_invitations
+  end
+
   resources :events do
     resources :comments
     resources :event_invitations

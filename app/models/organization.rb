@@ -10,4 +10,5 @@ class Organization < ApplicationRecord
   has_many_attached :documents
   has_many_attached :videos
   has_many_attached :images
+  accepts_nested_attributes_for :organization_invitations, allow_destroy: true
 end
