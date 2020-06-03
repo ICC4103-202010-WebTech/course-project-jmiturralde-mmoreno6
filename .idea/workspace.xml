@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="defb9cd1-f657-4276-92af-6aed7643295d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/views/events/_event_tile.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/event_invitations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/event_invitations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/organization_invitations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/organization_invitations_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/event_dates/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/event_dates/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/event_invitations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/event_invitations/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/events/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/organization_invitations/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organization_invitations/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/profile_pages/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profile_pages/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,23 +65,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab9-lab9-mmoreno6-jmiturralde" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/views/pages" />
-      <recent name="$PROJECT_DIR$/app/models" />
-      <recent name="$PROJECT_DIR$/app/models/organization" />
-      <recent name="$PROJECT_DIR$/app/models/user" />
-      <recent name="$PROJECT_DIR$/app/models/mailbox" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/views/profile_pages" />
       <recent name="$PROJECT_DIR$/app/views/api/v1/comments" />
       <recent name="$PROJECT_DIR$/app/views/api/v1" />
       <recent name="$PROJECT_DIR$/app/controllers/api/v1" />
       <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/pages" />
+      <recent name="$PROJECT_DIR$/app/models" />
+      <recent name="$PROJECT_DIR$/app/models/organization" />
+      <recent name="$PROJECT_DIR$/app/models/user" />
+      <recent name="$PROJECT_DIR$/app/models/mailbox" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: course-project-jmiturralde-mmoreno6">
@@ -223,6 +221,7 @@
       <workItem from="1591043194446" duration="8587000" />
       <workItem from="1591055984531" duration="15321000" />
       <workItem from="1591110171717" duration="11666000" />
+      <workItem from="1591149856185" duration="7555000" />
     </task>
     <servers />
   </component>
@@ -239,10 +238,10 @@
       <screen x="1366" y="0" width="1366" height="768" />
     </state>
     <state x="1815" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1590958115870" />
-    <state x="511" y="141" width="424" height="484" key="FileChooserDialogImpl" timestamp="1591056283663">
+    <state x="511" y="141" width="424" height="484" key="FileChooserDialogImpl" timestamp="1591150036505">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="511" y="141" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1591056283663" />
+    <state x="511" y="141" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1591150036505" />
     <state x="454" y="154" key="FileChooserDialogImpl/1366.0.1366.768/0.27.1366.741@0.27.1366.741" timestamp="1589511693791" />
     <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1587600156623" />
     <state width="1253" height="560" key="GridCell.Tab.0.bottom" timestamp="1588910862713">

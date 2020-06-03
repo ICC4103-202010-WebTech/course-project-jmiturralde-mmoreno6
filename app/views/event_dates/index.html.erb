@@ -1,21 +1,23 @@
 <h1>Event Dates</h1>
 
-<table>
-  <thead>
+<div class="container">
+  <table class="table">
+    <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Date</th>
+      <th>Action</th>
     </tr>
-  </thead>
-
-  <tbody>
+    </thead>
+    <tbody>
     <% @event_dates.each do |event_date| %>
       <tr>
         <td><%= event_date.event_date %></td>
-        <td><%= link_to 'Destroy', event_event_date_path(event_date.event.id, event_date.id), class: 'btn btn-danger', method: :delete %></td>
+        <td><%= link_to 'Destroy', event_event_date_path(event_date.event.id, event_date.id), class: 'btn btn-danger btn-sm', method: :delete %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

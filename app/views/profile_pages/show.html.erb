@@ -13,7 +13,7 @@
       <div class="profile-pic text-center">
         <% if @profile_page.picture.attached? %>
           <div data-toggle="modal" data-target="#exampleModal" style="width:400px; hight:auto">
-          <%= image_tag(@profile_page.picture, style:"width:100%") %>
+          <%= image_tag(@profile_page.picture, class:"img-thumbnail", style:"width:100%") %>
           </div>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -33,6 +33,8 @@
               </div>
             </div>
           </div>
+          <%else %>
+          <img src="https://748073e22e8db794416a-cc51ef6b37841580002827d4d94d19b6.ssl.cf3.rackcdn.com/not-found.png"  width="380px" height="250px">
         <% end %>
       </div>
     </div>
@@ -45,28 +47,28 @@
       </div>
     </div>
 </div>
-<br>
-<h4>My created events</h4>
-<div class="card">
-  <ul class="list-group list-group-flush">
-    <% @events.each do |event| %>
-      <tr>
-        <li class="list-group-item"><%=  link_to event.title, event_path(event) %></li>
-      </tr>
-    <% end %>
-  </ul>
+<div class="card my-5 bg-secondary" >
 </div>
+<h4>My created events</h4>
+<% if @events != []%>
+  <div class="row">
+    <% @events.each do |event| %>
+      <%= render partial: 'events/event_tile', locals: { event: event, a: "m"} %>
+    <% end %>
+  </div>
+<%else %>
+  <p>You have not create an event yet :(</p>
+<% end %>
 <br>
 <h4>My Event Invitations</h4>
-<div class="card">
-  <ul class="list-group list-group-flush">
+<% if @event_invitations != []%>
+  <div class="row">
     <% @event_invitations.each do |event| %>
-      <tr>
-        <li class="list-group-item"><%= link_to event.title, event_path(event) %></li>
-      </tr>
+      <%= render partial: 'events/event_tile', locals: { event: event, a: "m"} %>
     <% end %>
-  </ul>
-</div>
-</div>
+  </div>
+<%else %>
+  <p>You have not create an event yet :(</p>
+<% end %>
 
 
