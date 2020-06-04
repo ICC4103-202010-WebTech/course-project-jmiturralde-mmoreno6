@@ -2,22 +2,10 @@
 <h1>Organizations Memberships</h1>
 <br>
   <tbody>
-  <% if @organization_invited != [] %>
+  <% if @invitation != [] %>
     <div class="row">
-      <% @organization_invited.each do |organization| %>
-        <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><%= organization.name %></h5>
-              <p class="card-text">
-                <%= organization.description %>
-                <br>
-                <%= organization.created_at %>
-              </p>
-              <a href="<%= organization_path(organization.id) %>" class="btn btn-primary">View</a>
-            </div>
-          </div>
-        </div>
+      <% @invitation.each do |organization| %>
+        <%= render partial: 'organizations/organization_tile', locals: { organization: organization, a: "organization_member"} %>
       <% end %>
     </div>
   <%else %>

@@ -5,8 +5,16 @@ class OrganizationsController < ApplicationController
   # GET /organizations.json
   def index
     @organizations = Organization.all.where("user_id = ?", params[:user_id])
-    @organizations_admin = OrganizationInvitation.joins(:organization).where("organization_invitations.user_id = ? AND admin = ?", params[:user_id],true).select("organizations.id, organizations.name as name, admin, organizations.description as description, organizations.banner_picture as banner_picture, organizations.created_at")
+    @admin_invitation = OrganizationInvitation.all.where("user_id = ? AND admin = ?", params[:user_id],true)
+    @admin=[]
+    @admin_invitation.each do |j|
+      @temp = Organization.where("id = ?", j.organization_id)
+      @temp.each do |t|
+        @admin.append(t)
+        end
+    end
   end
+
 
   # GET /organizations/1
   # GET /organizations/1.json

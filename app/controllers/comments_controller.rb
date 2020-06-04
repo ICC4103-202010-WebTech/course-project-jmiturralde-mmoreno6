@@ -47,7 +47,6 @@ class CommentsController < ApplicationController
     @comment.event_invitation = @event_invitation
     @comment.event = Event.find(params[:event_id])
     @comment.commented_id = params[:comment][:commented_id]
-
     respond_to do |format|
       if @comment.save
         format.html { redirect_to event_comments_path(params[:event_id]), notice: 'Comment was successfully created.' }
@@ -90,6 +89,6 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.fetch(:comment, {}).permit(:id, :content, comment_images: [])
+      params.fetch(:comment, {}).permit(:id, :content, :commented_id, comment_images: [])
     end
 end

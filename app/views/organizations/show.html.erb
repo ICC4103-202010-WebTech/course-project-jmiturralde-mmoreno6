@@ -1,46 +1,101 @@
-
-<% if @organization.organization_picture.attached? %>
-  <div  data-toggle="modal" data-target="#exampleModal" style="width:400px; hight:auto">
-    <%= image_tag(@organization.organization_picture, style:"width:100%") %>
+<div class="row mb-2" >
+  <div class="col-md-5">
+    <div class="profile-pic text-center">
+      <% if @organization.organization_picture.attached? %>
+        <div data-toggle="modal" data-target="#exampleModal" style="width:400px; hight:auto">
+          <%= image_tag(@organization.organization_picture, class:"rounded", style:"width:100%") %>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width:800px">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><%=@organization.name + ' Banner Picture' %></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" style="width:800px; hight:auto">
+                <%= image_tag(@organization.organization_picture, style:"width:100%") %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <%else %>
+        <img src="https://748073e22e8db794416a-cc51ef6b37841580002827d4d94d19b6.ssl.cf3.rackcdn.com/not-found.png"  width="380px" height="250px">
+      <% end %>
+    </div>
   </div>
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content" style="width:800px">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><%=@organization.name + ' Banner Picture' %></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" style="width:800px; hight:auto">
-          <%= image_tag(@organization.organization_picture, style:"width:100%") %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
+
+  <div class="col-md-7">
+    <div class="profile-info">
+      <h3 class="display-3"><%= @organization.name%></h3><br>
+      <p class="font-italic"><%= "Creation:  " + @organization.created_at.strftime("%d %h %Y at %I:%M%p")  %></p>
+      <p class="font-italic"><%= "Description:  " + @organization.description  %></p><br>
+      <%if @organization.images.attached? %>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#img">Image gallery</button>
+      <%end %>
+      <%if @organization.videos.attached? %>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#videos">Videos</button>
+      <%end %>
+      <%if @organization.documents.attached? %>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#info">Documentation</button>
+      <%end %>
+    </div>
+  </div>
+</div>
+
+<div class="card my-3 bg-secondary" ></div>
+
+<div id="img" class="collapse">
+  <div class="row">
+    <%= render partial: 'events/slide_show', locals: { event: @organization, title: "Images Uploaded"} %>
+  </div>
+  <div class="card mx-5 mb-3 bg-secondary" ></div>
+</div>
+
+<div id="videos" class="collapse">
+  <div class="row">
+    <div class="container-fluid">
+      <h3 class="text-center mt-3">Videos Uploaded</h3>
+      <div class="row">
+        <% (0...@organization.videos.count).each do |video|  %>
+          <video width="320" height="240" controls>
+            <source src=<%= rails_blob_path(@organization.videos[video]) %> type="video/webm" />
+          </video>
+        <% end %>
       </div>
     </div>
   </div>
-<% end %>
-<h3><%= @organization.name%></h3>
-<p><%= @organization.description %></p>
-<p><%= @organization.created_at %></p>
-<h3>Event Images</h3>
-<% (0...@organization.images.count).each do |image|  %>
-  <%= image_tag(@organization.images[image], style: 'width:300px; height: auto') %>
-<% end %>
-<br>
-<h3>Event Videos</h3>
-<% (0...@organization.videos.count).each do |video|  %>
-  <video width="320" height="240" controls>
-    <source src=<%= rails_blob_path(@organization.videos[video]) %> type="video/webm" />
-  </video>
-<% end %>
-<br>
-<h3>Event Documents</h3>
-<% (0...@organization.documents.count).each do |doc|  %>
-  <%= link_to "Document " + (doc+1).to_s, rails_blob_path(@organization.documents[doc]), target: :_blank %>
-<% end %>
+  <div class="card mx-5 mb-3 bg-secondary" ></div>
+</div>
+
+<div id="info" class="collapse">
+  <div class="row">
+    <div class="container-fluid">
+      <h3 class="text-center mb-3 mt-2">Documentation Uploaded</h3>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Number</th>
+          <th>File</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% (0...@organization.documents.count).each do |doc|  %>
+          <tr>
+            <td><%= (doc+1).to_s %></td>
+            <td><%= link_to "Document", rails_blob_path(@organization.documents[doc]), target: :_blank %></td>
+          </tr>
+        <%end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 <h3>Organization Public Events</h3>
 <% if @events_organization != []%>
   <table style="width: 70%">

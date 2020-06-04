@@ -6,21 +6,7 @@
 <% if @organizations != []%>
   <div class="row">
     <% @organizations.each do |organization| %>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><%= organization.name %></h5>
-            <p class="card-text">
-              <%= organization.description %>
-              <br>
-              <%= organization.created_at %>
-            </p>
-            <a href="<%= organization_path(organization.id) %>" class="btn btn-primary">View</a>
-            <a href="<%= edit_organization_path(organization.id) %>" class="btn btn-primary">Edit</a>
-            <a href="<%= new_organization_organization_invitation_path(organization.id) %>" class="btn btn-primary">Invite</a>
-          </div>
-        </div>
-      </div>
+      <%= render partial: 'organization_tile', locals: { organization: organization, a: "my_organizations"} %>
     <% end %>
   </div>
 <%else %>
@@ -28,26 +14,11 @@
 <% end %>
 
 <br>
-
 <h3>Organization where I am admin</h3>
-<% if @organizations_admin != []%>
+<% if @admin != []%>
   <div class="row">
-    <% @organizations_admin.each do |organization| %>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><%= organization.name %></h5>
-            <p class="card-text">
-              <%= organization.description %>
-              <br>
-              <%= organization.created_at %>
-            </p>
-            <a href="<%= organization_path(organization.id) %>" class="btn btn-primary">View</a>
-            <a href="<%= edit_organization_path(organization.id) %>" class="btn btn-primary">Edit</a>
-            <a href="<%= new_organization_organization_invitation(organization.id) %>" class="btn btn-primary">Invite</a>
-          </div>
-        </div>
-      </div>
+    <% @admin.each do |organization| %>
+      <%= render partial: 'organization_tile', locals: { organization: organization, a: "my_organizations"} %>
     <% end %>
   </div>
 <% else %>

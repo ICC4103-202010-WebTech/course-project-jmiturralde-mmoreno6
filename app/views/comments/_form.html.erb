@@ -21,9 +21,9 @@
       <%= form.text_area :content, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= form.label :comment_image %>
+      <%= form.label :comment_images %><br>
+      <%= form.file_field :comment_images, multiple: true %>
       <br>
-      <%= form.file_field :content %>
       <%= form.hidden_field :commented_id, :value => params[:commented_id] %>
     </div>
     <%= form.submit class: "btn btn-primary" %>

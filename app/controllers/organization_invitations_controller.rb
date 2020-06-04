@@ -4,8 +4,14 @@ class OrganizationInvitationsController < ApplicationController
   # GET /organization_invitations
   # GET /organization_invitations.json
   def index
-    @organization_invited = OrganizationInvitation.joins(:organization).where("organization_invitations.user_id = ? AND admin = ?", params[:user_id],false).select("organizations.id, organizations.name as name, admin, organizations.description as description, organizations.banner_picture as banner_picture, organizations.created_at")
-
+    @organization_invitation = OrganizationInvitation.all.where("user_id = ? AND admin = ?", params[:user_id],false)
+    @invitation=[]
+    @organization_invitation.each do |j|
+      @temp = Organization.where("id = ?", j.organization_id)
+      @temp.each do |t|
+        @invitation.append(t)
+      end
+    end
   end
 
   # GET /organization_invitations/1

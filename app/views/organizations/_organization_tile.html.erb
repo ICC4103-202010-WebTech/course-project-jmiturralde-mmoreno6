@@ -1,0 +1,25 @@
+<div class="col-md-4">
+  <div class="card mb-4 shadow-sm">
+    <%if organization.organization_picture.attached? %>
+      <%= link_to image_tag(organization.organization_picture, class: "card-img-top", width: "100%"), url_for(organization) %>
+    <%else %>
+      <img src="https://748073e22e8db794416a-cc51ef6b37841580002827d4d94d19b6.ssl.cf3.rackcdn.com/not-found.png" class="card-img-top"  height="230px">
+    <% end %>
+    <div class="card-body">
+      <p class="card-text font-italic text-center"><%= link_to organization.name , organization %></p>
+      <div class="card mx-1 mb-3 bg-secondary" ></div>
+      <p class="card-text mb-2 text-muted"><%= "Creation: " + organization.created_at.strftime("%d %h %Y at %I:%M%p") %></p>
+      <p class="card-text text-muted"><%="Description" + organization.description %></p>
+      <div class="d-flex justify-content-between align-items-center">
+        <%if a == "my_organizations" %>
+            <a href="<%= organization_path(organization.id) %>" class="btn btn-primary btn-sm ml-auto">View</a>
+            <a href="<%= edit_organization_path(organization.id) %>" class="btn btn-primary btn-sm mx-1">Edit</a>
+            <a href="<%= new_organization_organization_invitation_path(organization.id) %>" class="btn btn-primary btn-sm md-auto">Invite</a>
+          <%elsif a == "organization_member"%>
+          <a href="<%= organization_path(organization.id) %>" class="btn btn-primary">View</a>
+        <%end %>
+      </div>
+    </div>
+  </div>
+</div>
+

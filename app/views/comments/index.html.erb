@@ -1,26 +1,47 @@
+<h3 class="display-3 text-center">Event Comments</h3><br>
 
-<h1>Comments</h1>
-<div class="card">
-  <ul class="list-group list-group-flush">
+<div class="comments-list">
   <% if @comments != []%>
     <% @comments.zip(@users).each do |comment, user|%>
-        <% @replies_count = Comment.all.where("commented_id = ?", comment).count %>
-      <tr>
-        <li class="list-group-item"><%= user.username %> says: <%= comment.content %>
-        <%= link_to 'Reply', new_event_comment_path(@event, :reply => true, :comment_user_id => user, :commented_id => comment.id)%>
-        <%= link_to 'View replies', event_comment_path(@event, comment)%>
-          <span class="badge"><%= @replies_count %></span></li>
+      <% @replies_count = Comment.all.where("commented_id = ?", comment).count %>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-2">
+            <a>
+              <%if user.profile_page.picture.attached? %>
+                <%= image_tag(user.profile_page.picture, class:"img-thumbnail", style:"width:100%") %>
+              <%else %>
+                <img src="https://748073e22e8db794416a-cc51ef6b37841580002827d4d94d19b6.ssl.cf3.rackcdn.com/not-found.png"  width="100%">
+              <%end %>
+            </a>
+          </div>
+          <div class="col-sm-8">
+            <p class="media-heading user_name"><b><%= user.username %> says: </b><%= comment.content %></p>
+              <%if comment.comment_images.attached? %>
+               <p>Images attached</p>
+               <% (0...comment.comment_images.count).each do |number|  %>
+                  <%=image_tag(comment.comment_images[number], style:"width:100px")%>
+                <%end %>
+              <%end %><br>
 
-  <% end %>
 
+
+
+          </div>
+          <div class="col-sm-2">
+            <span class="badge pull-right"><%= time_ago_in_words(comment.created_at) %> AGO</span>
+            <%= link_to 'Reply', new_event_comment_path(@event, :reply => true, :comment_user_id => user, :commented_id => comment.id), class: 'btn btn-secondary mt-3 btn-sm'%></a>
+            <a href="<%= event_comment_path(@event, comment) %>" class="btn btn-secondary btn-sm mt-3">View replies <span class="badge badge-primary"><%=@replies_count%></a>
+          </div>
+        </div>
+        <div class="card mx-1 my-3 bg-secondary" ></div>
+      </div>
+    <%end %>
   <% else %>
-  <p>This event doesn't have any comments</p>
+    <p>This event doesn't have any comments</p>
   <% end %>
-  </ul>
-</div>
-
-<br>
 
   <%= link_to "Add Comments", new_event_comment_path(@event), class: ["btn", "btn-primary"]%>
 
-<%= link_to 'Back',  event_path(@event), class: ["btn", "btn-secondary"]%>
+  <%= link_to 'Back',  event_path(@event), class: ["btn", "btn-secondary"]%>
+  </div>
