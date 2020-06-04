@@ -1,5 +1,4 @@
 <h1>New Comment</h1>
 
-<%= render 'form', comment: @comment %>
+<%= render 'form', locals: {comment: @comment, event: @event} %>
 
-<%= link_to 'Back', comments_path %>

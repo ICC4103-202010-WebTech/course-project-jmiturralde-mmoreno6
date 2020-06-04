@@ -1,21 +1,27 @@
 
 <h1>Notifications</h1>
 <br>
-<div class="card">
-  <ul class="list-group list-group-flush">
-    <% @notifications.each do |notification| %>
-      <tr>
-        <% if notification.notification_type == 0 %>
-          <li class="list-group-item">You has been invited to an event</li>
-        <% elsif notification.notification_type == 1%>
-          <li class="list-group-item">The date of the event has been defined</li>
-        <% elsif notification.notification_type == 2%>
-          <li class="list-group-item">The event has been canceled</li>
-        <% end %>
-      </tr>
-    <% end %>
-  </ul>
-</div>
+
+<ul class="list-group">
+  <% @notifications.each do |notification| %>
+      <% if notification.notification_type == 0 %>
+      <li class="list-group-item">
+          You has been invited to an event
+        <span class="badge"><%= time_ago_in_words(notification.created_at) %> AGO</span>
+        </li>
+      <% elsif notification.notification_type == 1%>
+      <li class="list-group-item">
+        The date of the event has been defined
+        <span class="badge"><%= time_ago_in_words(notification.created_at) %> AGO</span>
+        </li>
+      <% elsif notification.notification_type == 2%>
+      <li class="list-group-item">
+        The event has been canceled
+        <span class="badge"><%= time_ago_in_words(notification.created_at) %> AGO</span>
+        </li>
+      <% end %>
+  <% end %>
+</ul>
+
 
 <br>
-

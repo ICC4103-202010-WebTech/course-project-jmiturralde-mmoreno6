@@ -1,4 +1,18 @@
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<h3><%= @comment.content %>></h3>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <% if @replies_comments != []%>
+      <% @replies_comments.zip(@users).each do |comment, user|%>
+        <tr>
+          <li class="list-group-item"><%= user.username %> says: <%= comment.content %></li>
+
+      <% end %>
+
+    <% else %>
+      <p>This event doesn't have any comments</p>
+    <% end %>
+  </ul>
+</div>
+<br>
+<%= link_to 'Back', :back, class: "btn btn-secondary" %>

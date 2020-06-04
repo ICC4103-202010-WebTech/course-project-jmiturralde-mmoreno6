@@ -36,7 +36,8 @@
         <h3 class="display-3"><%= @event.title%></h3><br>
         <p class="font-italic"><%= "Location:  " + @event.location  %></p>
         <p class="font-italic"><%= "Description:  " + @event.description  %></p>
-        <%= link_to "See Comments", event_comments_path(@event), class: ["btn", "btn-primary"] %>
+          <%= link_to "See Comments", event_comments_path(@event), class: ["btn", "btn-primary"] %>
+
       </div>
     </div>
   </div>
@@ -66,7 +67,6 @@
     </div>
     <div class="card mx-5 mb-3 bg-secondary" ></div>
   <% end %>
-
   <div class="container-fluid">
     <h3 class="text-center mb-3 mt-5">Documentation Uploaded</h3>
     <table class="table">

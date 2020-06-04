@@ -1,0 +1,53 @@
+<%= form_with(model: [:admin, @admin_organization], local: true) do |form| %>
+  <% if @admin_organization.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_organization.errors.count, "error") %> prohibited this organization from being saved:</h2>
+
+      <ul>
+        <% @admin_organization.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="actions">
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :description %>
+      <%= form.text_field :description, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :organization_picture %>
+      <br>
+      <%= form.file_field :organization_picture %>
+    </div>
+    <div class="form-group">
+      <%= form.label :documents %>
+      <br>
+      <%= form.file_field :documents, multiple: true %>
+    </div>
+    <div class="form-group">
+      <%= form.label :videos %>
+      <br>
+      <%= form.file_field :videos, multiple: true %>
+    </div>
+    <div class="form-group">
+      <%= form.label :images %>
+      <br>
+      <%= form.file_field :images, multiple: true %>
+    </div>
+    <% if action_name == 'new' %>
+      <div class="form-group">
+        <%= form.label :user %>
+        <%= form.collection_select(:user_id, User.all.order(username: :asc), :id, :username, {}, { class: "form-control" }) %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: ["btn", "btn-primary"]%>
+    <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
+  </div>
+<% end %>

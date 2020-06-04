@@ -1,10 +1,14 @@
-<%= form_with(model: comment, local: true) do |form| %>
-  <% if comment.errors.any? %>
+
+<% if params[:reply] %>
+  <h4>Reply to <%= User.find(params[:comment_user_id]).username %></h4>
+  <% end %>
+<%= form_with(model: [@event, @comment], local: true) do |form| %>
+  <% if @comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
       <ul>
-        <% comment.errors.full_messages.each do |message| %>
+        <% @comment.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -12,6 +16,17 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <div class="form-group">
+      <%= form.label :content %>
+      <%= form.text_area :content, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :comment_image %>
+      <br>
+      <%= form.file_field :content %>
+      <%= form.hidden_field :commented_id, :value => params[:commented_id] %>
+    </div>
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to 'Back', event_comments_path(@event), class: "btn btn-secondary" %>
   </div>
 <% end %>

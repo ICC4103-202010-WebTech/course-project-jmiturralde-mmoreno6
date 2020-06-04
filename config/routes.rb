@@ -34,4 +34,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :organizations
+    resources :events do
+      resources :comments
+    end
+  end
 end

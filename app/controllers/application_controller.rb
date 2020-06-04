@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   private
 
   def set_customer
-    @user = User.find(2)
+    @user = User.find(1)
   end
 end

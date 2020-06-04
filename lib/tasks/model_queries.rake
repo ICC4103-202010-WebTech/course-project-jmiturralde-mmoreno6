@@ -63,4 +63,9 @@ namespace :db do
 
   end
 
+  task :populate_fake_data => :environment do
+    create_list(:user_with_profile_page, 20)
+    create_list(:event, 40)
+    create_list(:organization, 20)
+  end
 end

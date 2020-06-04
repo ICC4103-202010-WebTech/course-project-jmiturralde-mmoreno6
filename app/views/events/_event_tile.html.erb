@@ -10,15 +10,15 @@
       <p class="card-text font-italic text-center"><%= link_to event.title, event %></p>
       <div class="card mx-1 mb-3 bg-secondary" ></div>
       <p class="card-text"><%= event.location %></p>
-      <p class="card-text mb-4"><%= event.created_at %></p>
+      <p class="card-text mb-4"><%= "Created " + event.created_at.strftime("%d %h %Y at %I:%M%p") %></p>
       <div class="d-flex justify-content-between align-items-center">
         <%if a == "my_events" %>
-            <a href="<%= event_path(event.id) %>" class="btn btn-primary btn-sm">View</a>
+          <%= link_to 'View', event_path(event.id), class: 'btn btn-primary btn-sm'%>
             <a href="<%= edit_event_path(event.id) %>" class="btn btn-primary btn-sm">Edit</a>
             <a href="<%= new_event_event_invitation_path(event.id) %>" class="btn btn-primary btn-sm">Invite</a>
             <a href="<%= event_event_dates_path(event.id) %>" class="btn btn-primary btn-sm">Event Date</a>
             <%= link_to 'Destroy', event_path(event.id), class: 'btn btn-danger btn-sm', method: :delete %>
-          <%elsif a== "upcoming_events"%>
+          <%elsif a == "upcoming_events"%>
             <a href="<%= event_path(event.id) %>" class="btn btn-primary">View</a>
             <a href="<%= new_event_invitation_user_vote_path(@user.event_invitations.find_by(event: event.id).id) %>" class="btn btn-secondary">Go to Vote</a>
         <%end %>

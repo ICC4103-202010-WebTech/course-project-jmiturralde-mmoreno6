@@ -2,9 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="defb9cd1-f657-4276-92af-6aed7643295d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/events/_slide_show.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/factories.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/course-project-jmiturralde-mmoreno6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/course-project-jmiturralde-mmoreno6.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/comments_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/comment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/comment.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/organization.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/organization.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/comments/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comments/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/comments/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comments/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/comments/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comments/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/comments/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comments/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/events/_event_tile.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/_event_tile.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/events/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/_form.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/events/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/notifications/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/notifications/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organizations/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tasks/model_queries.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/model_queries.rake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +50,7 @@
       <list>
         <option value="ERB File" />
         <option value="HTML File" />
+        <option value="Ruby File" />
       </list>
     </option>
   </component>
@@ -226,11 +247,11 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1507" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590964281641">
+    <state x="1507" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591205959855">
       <screen x="1366" y="0" width="1366" height="768" />
     </state>
     <state x="141" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog/1366.0.1366.768/0.27.1366.741@0.27.1366.741" timestamp="1588884557371" />
-    <state x="1507" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1590964281641" />
+    <state x="1507" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1591205959855" />
     <state x="1815" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590958115870">
       <screen x="1366" y="0" width="1366" height="768" />
     </state>
@@ -307,10 +328,11 @@
     </state>
     <state x="427" y="188" width="756" height="727" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1591161581800" />
     <state x="1746" y="175" width="672" height="677" key="run.anything.popup/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1591050254295" />
-    <state x="328" y="89" width="707" height="678" key="search.everywhere.popup" timestamp="1588954008156">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state x="1694" y="64" width="707" height="703" key="search.everywhere.popup" timestamp="1591198083836">
+      <screen x="1366" y="0" width="1366" height="768" />
     </state>
     <state x="328" y="89" width="707" height="678" key="search.everywhere.popup/1366.0.1366.768/0.27.1366.741@0.27.1366.741" timestamp="1588954008156" />
+    <state x="1694" y="64" width="707" height="703" key="search.everywhere.popup/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1591198083836" />
     <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1587339343731" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">

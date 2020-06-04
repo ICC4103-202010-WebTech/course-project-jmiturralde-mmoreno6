@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :organizations, :through => :organization_invitations
   has_many :comments, :through => :event_invitations
   after_initialize :default_values
+  after_create :create_base
+
   private
   def default_values
     self.system_admin ||= false
@@ -21,5 +23,9 @@ class User < ApplicationRecord
     if search
       user_name = self.find_by(user_name: search)
     end
+  end
+
+  def create_base
+    MailBox.create(user: self)
   end
 end
