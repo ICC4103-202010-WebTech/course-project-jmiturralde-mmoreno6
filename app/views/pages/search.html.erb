@@ -1,11 +1,13 @@
-<h1> Search Results</h1>
+<div class="mb-5">
+  <h1 class="display-3 text-center"> Search Results</h1>
+</div>
 
-<%if (@users||@distinct_profile_pages) != []%>
-  <h3>Users found <span class="badge"><%=@countt=(@users.count +@distinct_profile_pages.count) %></span></h3>
+<%if (@users!=[]||@distinct_profile_pages!= [])%>
+  <h3>Users found <span class="badge"><%=@countt=(@users.count + @distinct_profile_pages.count) %></span></h3>
   <div class="row">
     <% @users.each do |user| %>
       <div class="col-sm-4">
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="row no-gutters bg-light border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-none d-lg-block">
             <% if user.profile_page.picture.attached? %>
               <%= image_tag(user.profile_page.picture, style:"width:100%") %>
@@ -14,7 +16,7 @@
             <%end %>
           </div>
           <div class="col p-4 d-flex flex-column position-static">
-            <h4 class="mb-0"><%= user.username %></h4><br>
+            <h4 class="mb-0"><%="@"+user.username %></h4><br>
             <div class="mb-1 text-muted">Name: <%= user.profile_page.name%></div>
             <div class="mb-1 text-muted">Location: <%= user.profile_page.location%></div>
           </div>
@@ -23,7 +25,7 @@
     <%end %>
     <% @distinct_profile_pages.each do |page| %>
       <div class="col-sm-4">
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="row no-gutters bg-light border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-none d-lg-block">
             <% if page.picture.attached? %>
               <%= image_tag(page.picture, style:"width:100%") %>
@@ -32,7 +34,7 @@
             <%end %>
           </div>
           <div class="col p-4 d-flex flex-column position-static">
-            <h4 class="mb-0"><%= page.user.username %></h4><br>
+            <h4 class="mb-0"><%="@"+ page.user.username %></h4><br>
             <div class="mb-1 text-muted">Name: <%= page.name%></div>
             <div class="mb-1 text-muted">Location: <%= page.location%></div>
           </div>
@@ -40,17 +42,16 @@
       </div>
     <%end %>
   </div>
+  <div class="card mx-1 mb-3 bg-secondary" ></div>
 <%end %>
 
-<div class="card" >
-</div>
 
 <%if (@organizations) != []%>
   <h3>Organizations found <span class="badge"><%=@organizations.count %></span></h3>
     <div class="row">
       <% @organizations.each do |organization| %>
         <div class="col-sm-12">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="row no-gutters bg-light border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-none d-lg-block">
               <% if organization.organization_picture.attached? %>
                 <%= image_tag(organization.organization_picture, style:"width:100%") %>
@@ -66,73 +67,81 @@
         </div>
       <%end %>
     </div>
+  <div class="card mx-1 mb-3 bg-secondary" ></div>
 <%end %>
 
-<div class="card" >
-</div>
-<%if (@events&&@distinct_event_creators) != []%>
-  <h3>Events found <span class="badge"><%= @count=(@events.count + @distinct_event_creators.count) %></span></h3>
-  <div class="row">
-    <% @events.each do |event| %>
-      <div class="col-sm-6">
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-none d-lg-block">
-            <% if event.event_picture.attached? %>
-              <%= image_tag(event.event_picture, style:"width:100%") %>
-            <%else %>
-              <svg class="bd-placeholder-img" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <%end %>
-          </div>
-          <div class="col p-4 d-flex flex-column position-static">
-            <h4 class="mb-0"><%= event.title %></h4><br>
-            <div class="mb-1 text-muted">Creator: <%= @all_profile_pages.where("user_id=?",event.user_id)[0].name%></div>
-            <div class="mb-1 text-muted">Description: <%= event.description%></div>
-          </div>
-        </div>
-      </div>
-    <%end %>
-    <% @distinct_event_creators.each do |creator| %>
-      <div class="col-sm-6">
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-none d-lg-block">
-            <% if creator.event_picture.attached? %>
-              <%= image_tag(creator.event_picture, style:"width:100%") %>
-            <%else %>
-              <svg class="bd-placeholder-img" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <%end %>
-          </div>
-          <div class="col p-4 d-flex flex-column position-static">
-            <h4 class="mb-0"><%= creator.title %></h4><br>
-            <div class="mb-1 text-muted">Creator: <%= @all_profile_pages.where("user_id=?",creator.user_id)[0].name%></div>
-            <div class="mb-1 text-muted">Description: <%= creator.description%></div>
-          </div>
-        </div>
-      </div>
-    <%end %>
-  </div>
-<%end %>
-
-<%if (@event_organization) != []%>
-  <h3>Events by organization <span class="badge"><%=@event_organization.count  %></span></h3>
+<%if (@events != []||@event_creators!=[]||@event_organization!=[])%>
+  <h3>Events found <span class="badge"><%= @count=(@events.count + @event_creators.count + @event_organization.count) %></span></h3>
+  <%if (@events != [])%>
+    <h4>By title/description <span class="badge"><%= @events.count %></span></h4>
     <div class="row">
-      <% @event_organization.each do |organization| %>
+      <% @events.each do |event| %>
         <div class="col-sm-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="row no-gutters bg-light border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-none d-lg-block">
-              <% if organization.event_picture.attached? %>
-                <%= image_tag(organization.event_picture, style:"width:100%") %>
+              <% if event.event_picture.attached? %>
+                <%= image_tag(event.event_picture, style:"width:100%") %>
               <%else %>
                 <svg class="bd-placeholder-img" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
               <%end %>
             </div>
             <div class="col p-4 d-flex flex-column position-static">
-              <h4 class="mb-0"><%= organization.title %></h4><br>
-              <div class="mb-1 text-muted">Organization: <%= @all_organizations.where("id=?",organization.organization_id)[0].name%></div>
-              <div class="mb-1 text-muted">Description: <%= organization.description%></div>
+              <h4 class="mb-0"><%= event.title %></h4><br>
+              <div class="mb-1 text-muted">Creator: @<%= @all_users.where("id=?",event.user_id)[0].username%></div>
+              <div class="mb-1 text-muted">Description: <%= event.description%></div>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  <%end %>
+
+  <%if (@event_creators!=[])%>
+    <h4>By creator <span class="badge"><%= @event_creators.count %></span></h4>
+    <div class="row">
+      <% @event_creators.each do |creator| %>
+        <div class="col-sm-6">
+          <div class="row no-gutters bg-light border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-none d-lg-block">
+              <% if creator.event_picture.attached? %>
+                <%= image_tag(creator.event_picture, style:"width:100%") %>
+              <%else %>
+                <svg class="bd-placeholder-img" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <%end %>
+            </div>
+            <div class="col p-4 d-flex flex-column position-static">
+              <h4 class="mb-0"><%= creator.title %></h4><br>
+              <div class="mb-1 text-muted">Creator: @<%= @all_users.where("id=?",creator.user_id)[0].username%></div>
+              <div class="mb-1 text-muted">Description: <%= creator.description%></div>
             </div>
           </div>
         </div>
       <%end %>
     </div>
+  <%end %>
+
+  <%if (@event_organization) != []%>
+    <h4>By organization: <span class="badge"><%=@event_organization.count  %></span></h4>
+      <div class="row">
+        <% @event_organization.each do |organization| %>
+          <div class="col-sm-6">
+            <div class="row no-gutters bg-light border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-none d-lg-block">
+                <% if organization.event_picture.attached? %>
+                  <%= image_tag(organization.event_picture, style:"width:100%") %>
+                <%else %>
+                  <svg class="bd-placeholder-img" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                <%end %>
+              </div>
+              <div class="col p-4 d-flex flex-column position-static">
+                <h4 class="mb-0"><%= organization.title %></h4><br>
+                <div class="mb-1 text-muted">Organization: <%= @all_organizations.where("id=?",organization.organization_id)[0].name%></div>
+                <div class="mb-1 text-muted">Description: <%= organization.description%></div>
+              </div>
+            </div>
+          </div>
+        <%end %>
+      </div>
+  <%end %>
 <%end %>
 

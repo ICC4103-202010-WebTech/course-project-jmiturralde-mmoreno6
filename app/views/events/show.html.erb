@@ -1,12 +1,10 @@
-<div>
-
 
   <div class="row mb-2" >
     <div class="col-md-5">
       <div class="profile-pic text-center">
         <% if @event.event_picture.attached? %>
           <div data-toggle="modal" data-target="#exampleModal" style="width:400px; hight:auto">
-            <%= image_tag(@event.event_picture, class:"rounded-circle", style:"width:100%") %>
+            <%= image_tag(@event.event_picture, class:"rounded", style:"width:100%") %>
           </div>
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -37,53 +35,67 @@
         <p class="font-italic"><%= "Location:  " + @event.location  %></p>
         <p class="font-italic"><%= "Description:  " + @event.description  %></p>
           <%= link_to "See Comments", event_comments_path(@event), class: ["btn", "btn-primary"] %>
+        <%if @event.images.attached? %>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#img">Image gallery</button>
+        <%end %>
+        <%if @event.videos.attached? %>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#videos">Videos</button>
+        <%end %>
+        <%if @event.documents.attached? %>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#info">Documentation</button>
+        <%end %>
 
       </div>
     </div>
   </div>
-  <div class="card my-5 bg-secondary" >
+  <div class="card my-3 bg-secondary" >
   </div>
 
-  <%if @event.images.attached? %>
-    <div class="row">
-      <%= render partial: 'slide_show', locals: { event: @event, title: "Images Uploaded"} %>
-    </div>
-    <div class="card mx-5 mb-3 bg-secondary" ></div>
-  <%end %>
-
-  <%if @event.videos.attached? %>
-    <div class="container-fluid">
-      <h3 class="text-center mb-3">Videos Uploaded</h3>
+    <div id="img" class="collapse">
       <div class="row">
-        <% (0...@event.videos.count).each do |video|  %>
-        <div class="col-4">
-          <video width="320" height="240" controls>
-            <source src=<%= rails_blob_path(@event.videos[video]) %> type="video/mp4" />
-          </video>
-        </div>
-        <% end %>
+        <%= render partial: 'slide_show', locals: { event: @event, title: "Images Uploaded"} %>
       </div>
       <div class="card mx-5 mb-3 bg-secondary" ></div>
     </div>
+
+  <div id="videos" class="collapse">
+    <div class="row">
+      <div class="container-fluid">
+        <h3 class="text-center mt-3">Videos Uploaded</h3>
+        <div class="row">
+          <% (0...@event.videos.count).each do |video|  %>
+            <div class="col-4">
+              <video width="320" height="240" controls>
+                <source src=<%= rails_blob_path(@event.videos[video]) %> type="video/mp4" />
+              </video>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <div class="card mx-5 mb-3 bg-secondary" ></div>
-  <% end %>
-  <div class="container-fluid">
-    <h3 class="text-center mb-3 mt-5">Documentation Uploaded</h3>
-    <table class="table">
-      <thead>
-      <tr>
-        <th>Number</th>
-        <th>File</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% (0...@event.documents.count).each do |doc|  %>
-        <tr>
-          <td><%= (doc+1).to_s %></td>
-          <td><%= link_to "Document", rails_blob_path(@event.documents[doc]), target: :_blank %></td>
-        </tr>
-      <%end %>
-      </tbody>
-    </table>
   </div>
-</div>
+
+  <div id="info" class="collapse">
+      <div class="row">
+        <div class="container-fluid">
+          <h3 class="text-center mb-3 mt-2">Documentation Uploaded</h3>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Number</th>
+              <th>File</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% (0...@event.documents.count).each do |doc|  %>
+              <tr>
+                <td><%= (doc+1).to_s %></td>
+                <td><%= link_to "Document", rails_blob_path(@event.documents[doc]), target: :_blank %></td>
+              </tr>
+            <%end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
