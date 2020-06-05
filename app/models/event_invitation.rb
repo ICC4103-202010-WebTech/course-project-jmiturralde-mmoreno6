@@ -6,10 +6,15 @@ class EventInvitation < ApplicationRecord
 
   after_initialize :default_values
   before_destroy :send_notification_event_delete
+  after_create :send_notification_event_create
 
   private
   def default_values
     self.report ||= false
+  end
+
+  def send_notification_event_create
+    Notification.create(user: self.user, notification_type: 0)
   end
 
   def send_notification_event_delete

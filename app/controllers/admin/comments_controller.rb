@@ -5,6 +5,7 @@ class Admin::CommentsController < ApplicationController
   # GET /admin/comments.json
   def index
     @admin_comments = Comment.all.where("event_id = ?", params[:event_id])
+    @event=Event.where("id = ?", params[:event_id])
   end
 
   # GET /admin/comments/1
@@ -14,7 +15,8 @@ class Admin::CommentsController < ApplicationController
 
   # GET /admin/comments/new
   def new
-    @admin_comment = Admin::Comment.new
+    @admin_comment = Comment.new
+    @admin_event = Event.find(params[:event_id])
   end
 
   # GET /admin/comments/1/edit
@@ -25,15 +27,14 @@ class Admin::CommentsController < ApplicationController
   # POST /admin/comments
   # POST /admin/comments.json
   def create
-    @admin_comment = Admin::Comment.new(admin_comment_params)
-
+    @admin_comment = Comment.new(admin_comment_params)
+    @admin_comment.event_invitation = EventInvitation.find_by(user_id: params[:comment][:user_id], event_id: params[:event_id])
+    @admin_comment.event =Event.find(params[:event_id])
     respond_to do |format|
       if @admin_comment.save
-        format.html { redirect_to @admin_comment, notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_comment }
+        format.html { redirect_to admin_event_comments_path(params[:event_id]), notice: 'Comment was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @admin_comment.errors, status: :unprocessable_entity }
       end
     end
   end
