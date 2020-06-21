@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'search', to: 'pages#search'
 
   resources :users do
-    resource :profile_pages, :mail_boxes
+    resource :profile_pages
+    resource :mail_boxes do
+      resource :send_messages
+    end
     resources :organizations, shallow: true
     resources  :organization_invitations, shallow: true
     resources :events, shallow: true

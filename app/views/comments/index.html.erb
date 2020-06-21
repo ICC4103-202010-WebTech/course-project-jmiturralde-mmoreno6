@@ -30,7 +30,7 @@
           </div>
           <div class="col-sm-2">
             <span class="badge pull-right"><%= time_ago_in_words(comment.created_at) %> AGO</span>
-            <%= link_to 'Reply', new_event_comment_path(@event, :reply => true, :comment_user_id => user, :commented_id => comment.id), class: 'btn btn-secondary mt-3 btn-sm'%></a>
+            <%= link_to 'Reply', new_event_comment_path(@event, :commented_id => comment.id), class: 'btn btn-secondary mt-3 btn-sm'%></a>
             <a href="<%= event_comment_path(@event, comment) %>" class="btn btn-secondary btn-sm mt-3">View replies <span class="badge badge-primary"><%=@replies_count%></a>
           </div>
         </div>

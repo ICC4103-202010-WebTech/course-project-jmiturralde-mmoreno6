@@ -22,8 +22,8 @@ FactoryBot.define do
       end
 
       after(:create) do |mail_box, evaluator|
-        create_list(:send_message, evaluator.send_messages_count, mail_box: mail_box)
-        create_list(:received_message, evaluator.received_messages_count, mail_box: mail_box)
+        create_list(:send_message, evaluator.send_messages_count, mail_box_id: mail_box.id)
+        create_list(:received_message, evaluator.received_messages_count, mail_box_id: mail_box.id)
       end
     end
 

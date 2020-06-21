@@ -1,5 +1,5 @@
 
-<h1>MailBox</h1>
+<h1>MailBox<%= link_to 'New Message', new_user_mail_boxes_send_messages_path(@user.id), class:"btn btn-info btn-sm mx-3"  %></h1>
 <br>
 <h2>Messages Received</h2>
 <section class="content inbox">
