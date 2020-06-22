@@ -45,7 +45,12 @@ group :development do
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
   gem 'faker', '~> 2.11'
 
+  #auth
   gem 'devise'
+  gem 'omniauth'
+  gem 'omniauth-google-oauth2'
+  #Recovery password email
+  gem 'dotenv-rails'
 
 end
 

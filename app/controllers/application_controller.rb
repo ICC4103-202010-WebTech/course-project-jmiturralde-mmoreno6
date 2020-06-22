@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
-  before_action :set_customer
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  private
+  protected
 
-  def set_customer
-    @user = User.find(1)
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, profile_page_attributes: [:name,
+                                                                                             :last_name,
+                                                                                            :location]])
   end
 end

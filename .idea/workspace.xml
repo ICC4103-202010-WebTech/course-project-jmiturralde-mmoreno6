@@ -2,14 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="defb9cd1-f657-4276-92af-6aed7643295d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/course-project-jmiturralde-mmoreno6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/course-project-jmiturralde-mmoreno6.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/comments_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/event_dates_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/event_dates_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/event_invitations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/event_invitations_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/mail_boxes_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/mail_boxes_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/organization_invitations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/organization_invitations_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/profile_pages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/profile_pages_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/send_messages_controller.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/user_votes_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/user_votes_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/send_messages_helper.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/mail_box.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/mail_box.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/received_message.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/send_message.rb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/mail_boxes/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/mail_boxes/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/profile_pages/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profile_pages/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/send_messages/_form.html.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/send_messages/_send_message.json.jbuilder" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/send_messages/edit.html.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/send_messages/index.html.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/send_messages/index.json.jbuilder" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/send_messages/new.html.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/send_messages/show.html.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/send_messages/show.json.jbuilder" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/development.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/devise.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/devise.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418162547_create_received_messages.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418162610_create_send_messages.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418162825_add_mail_box_id_to_received_message.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418162839_add_mail_box_id_to_send_message.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tasks/model_queries.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/model_queries.rake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/controllers/send_messages_controller_test.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/factories.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/factories.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/models/received_message_test.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/models/send_message_test.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/system/send_messages_test.rb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +77,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="ERB File" />
-        <option value="Ruby File" />
         <option value="HTML File" />
+        <option value="Ruby File" />
       </list>
     </option>
   </component>
@@ -72,19 +115,19 @@
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/views/pages" />
-      <recent name="$PROJECT_DIR$/app/models" />
-      <recent name="$PROJECT_DIR$/app/models/organization" />
-      <recent name="$PROJECT_DIR$/app/models/user" />
-      <recent name="$PROJECT_DIR$/app/models/mailbox" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Yiyo\Desktop\course-project-jmiturralde-mmoreno6\app\views\organizations" />
       <recent name="$PROJECT_DIR$/app/views/profile_pages" />
       <recent name="$PROJECT_DIR$/app/views/api/v1/comments" />
       <recent name="$PROJECT_DIR$/app/views/api/v1" />
       <recent name="$PROJECT_DIR$/app/controllers/api/v1" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/controllers/users" />
+      <recent name="$PROJECT_DIR$/app/views/pages" />
+      <recent name="$PROJECT_DIR$/app/models" />
+      <recent name="$PROJECT_DIR$/app/models/organization" />
+      <recent name="$PROJECT_DIR$/app/models/user" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: course-project-jmiturralde-mmoreno6">
@@ -229,7 +272,8 @@
       <workItem from="1591461030640" duration="73000" />
       <workItem from="1592099168949" duration="1384000" />
       <workItem from="1592511644131" duration="49000" />
-      <workItem from="1592747361295" duration="7746000" />
+      <workItem from="1592747361295" duration="17932000" />
+      <workItem from="1592772553430" duration="22446000" />
     </task>
     <servers />
   </component>
@@ -255,6 +299,10 @@
     </state>
     <state x="141" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog/1366.0.1366.768/0.27.1366.741@0.27.1366.741" timestamp="1588884557371" />
     <state x="1507" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1591205959855" />
+    <state x="1798" y="201" width="559" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592779642926">
+      <screen x="1366" y="0" width="1366" height="768" />
+    </state>
+    <state x="1798" y="201" width="559" height="390" key="#com.intellij.fileTypes.FileTypeChooser/1366.0.1366.768/0.27.1366.741@1366.0.1366.768" timestamp="1592779642926" />
     <state x="1815" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590958115870">
       <screen x="1366" y="0" width="1366" height="768" />
     </state>

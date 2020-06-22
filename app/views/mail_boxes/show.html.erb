@@ -1,5 +1,5 @@
 
-<h1>MailBox<%= link_to 'New Message', new_user_mail_boxes_send_messages_path(@user.id), class:"btn btn-info btn-sm mx-3"  %></h1>
+<h1>MailBox<%= link_to 'New Message', new_user_mail_boxes_messages_path(current_user.id), class:"btn btn-info btn-sm mx-3"  %></h1>
 <br>
 <h2>Messages Received</h2>
 <section class="content inbox">
@@ -15,7 +15,7 @@
                 <div class="media-body">
                   <div class="media-heading">
                     <a class="m-r-10"><%= message.title %></a>
-                    <span class="badge bg-blue">TO: <%= message.sender_username %></span>
+                    <span class="badge bg-blue">FROM: <%= message.mail_box.user.username %></span>
                     <small class="float-right text-muted"><time class="hidden-sm-down" datetime="2017"><%= message.created_at.strftime("%d %h %Y at %I:%M%p") %></time><i class="zmdi zmdi-attachment-alt"></i> </small>
                   </div>
                   <p class="msg"><%= message.body %></p>
@@ -43,7 +43,7 @@
                 <div class="media-body">
                   <div class="media-heading">
                     <a class="m-r-10"><%= message.title %></a>
-                    <span class="badge bg-blue">FROM: <%= message.receiver_username %></span>
+                    <span class="badge bg-blue">TO: <%= message.receiver_username %></span>
                     <small class="float-right text-muted"><time class="hidden-sm-down" datetime="2017"><%= message.created_at.strftime("%d %h %Y at %I:%M%p") %></time><i class="zmdi zmdi-attachment-alt"></i> </small>
                   </div>
                   <p class="msg"><%= message.body %></p>

@@ -1,5 +1,6 @@
 class EventDatesController < ApplicationController
   before_action :set_event_date, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /event_dates
   # GET /event_dates.json

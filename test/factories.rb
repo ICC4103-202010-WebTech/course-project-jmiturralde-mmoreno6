@@ -2,6 +2,12 @@ require 'securerandom'
 
 include FactoryBot::Syntax::Methods
 FactoryBot.define do
+  factory :message do
+    receiver_username { "MyString" }
+    title { "MyString" }
+    boy { "MyString" }
+  end
+
   factory :user do
     username { Faker::Name.first_name }
     email { "#{username.gsub(/\s+/, "")}@example.com".downcase }

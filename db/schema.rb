@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_21_160423) do
+ActiveRecord::Schema.define(version: 2020_06_22_202355) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -118,6 +118,16 @@ ActiveRecord::Schema.define(version: 2020_06_21_160423) do
     t.index ["user_id"], name: "index_mail_boxes_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "receiver_username"
+    t.string "title"
+    t.string "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "mail_box_id"
+    t.index ["mail_box_id"], name: "index_messages_on_mail_box_id"
+  end
+
   create_table "notifications", force: :cascade do |t|
     t.string "calendar"
     t.integer "notification_type"
@@ -175,26 +185,6 @@ ActiveRecord::Schema.define(version: 2020_06_21_160423) do
     t.index ["user_id"], name: "index_profile_pages_on_user_id"
   end
 
-  create_table "received_messages", force: :cascade do |t|
-    t.string "sender_username"
-    t.string "title"
-    t.string "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "mail_box_id"
-    t.index ["mail_box_id"], name: "index_received_messages_on_mail_box_id"
-  end
-
-  create_table "send_messages", force: :cascade do |t|
-    t.string "receiver_username"
-    t.string "title"
-    t.string "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "mail_box_id"
-    t.index ["mail_box_id"], name: "index_send_messages_on_mail_box_id"
-  end
-
   create_table "user_votes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -215,6 +205,7 @@ ActiveRecord::Schema.define(version: 2020_06_21_160423) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -248,6 +239,7 @@ ActiveRecord::Schema.define(version: 2020_06_21_160423) do
   add_foreign_key "image_event_pages", "events"
   add_foreign_key "image_organization_pages", "organizations"
   add_foreign_key "mail_boxes", "users"
+  add_foreign_key "messages", "mail_boxes"
   add_foreign_key "notifications", "users"
   add_foreign_key "organization_invitations", "organizations"
   add_foreign_key "organization_invitations", "users"
@@ -255,8 +247,6 @@ ActiveRecord::Schema.define(version: 2020_06_21_160423) do
   add_foreign_key "pdf_event_pages", "events"
   add_foreign_key "pdf_organization_pages", "organizations"
   add_foreign_key "profile_pages", "users"
-  add_foreign_key "received_messages", "mail_boxes"
-  add_foreign_key "send_messages", "mail_boxes"
   add_foreign_key "user_votes", "event_dates"
   add_foreign_key "user_votes", "event_invitations"
   add_foreign_key "video_event_pages", "events"
