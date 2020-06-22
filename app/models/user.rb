@@ -36,7 +36,6 @@ class User < ApplicationRecord
   def self.from_google(email:, first_name:, last_name:, uid:, avatar_url:)
     require 'securerandom'
     username = (first_name + last_name.delete(' ')).downcase
-    @user = create_with(uid: uid, username: username, password: SecureRandom.urlsafe_base64).find_or_create_by!(email: email)
-
+    create_with(uid: uid, username: username, password: SecureRandom.urlsafe_base64).find_or_create_by!(email: email)
   end
-  end
+end

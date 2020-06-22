@@ -2,9 +2,8 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     user = User.from_google(from_google_params)
-
     if user.profile_page.nil?
-      user.profile_page = ProfilePage.new(name: first_name, last_name: last_name)
+      user.profile_page = ProfilePage.new(name: from_google_params[:first_name], last_name: from_google_params[:last_name])
       end
     if user.present?
       sign_out_all_scopes
