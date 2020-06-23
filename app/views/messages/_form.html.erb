@@ -27,7 +27,7 @@
       <%= form.text_area :body, class: "form-control" %>
     </div>
 
-    <%= form.submit %>
-    <%= link_to 'Back', user_mail_boxes_path(current_user) %>
+    <%= form.submit class: ["btn", "btn-primary"]%>
+    <%= link_to 'Back', user_mail_boxes_path(current_user), class:"btn btn-secondary" %>
   </div>
 <% end %>

@@ -13,6 +13,7 @@ FactoryBot.define do
     email { "#{username.gsub(/\s+/, "")}@example.com".downcase }
     system_admin {0}
     password {SecureRandom.alphanumeric(8)}
+    terms {true }
     after(:create) do |user|
       user.profile_page ||= create(:profile_page, :user => user)
       user.mail_box ||= create(:mail_box_with_messages, :user => user)
