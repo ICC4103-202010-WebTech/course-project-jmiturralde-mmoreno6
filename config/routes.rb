@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :organizations
+    resources :organizations, :users
     resources :events do
       resources :comments
     end

@@ -1,5 +1,6 @@
 class Admin::OrganizationsController < ApplicationController
   before_action :set_admin_organization, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!
 
   # GET /admin/organizations
   # GET /admin/organizations.json

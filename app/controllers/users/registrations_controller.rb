@@ -19,7 +19,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     username = params[:user][:username]
     password = params[:user][:password]
     email = params[:user][:email]
-    @user = User.new(email: email, password: password, username: username)
+    terms = params[:user][:terms]
+    @user = User.new(email: email, password: password, username: username, terms: terms)
     @user.profile_page = @profile_page
     respond_to do |format|
       if @user.save

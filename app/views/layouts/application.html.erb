@@ -52,6 +52,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href=<%= admin_organizations_path %>>Organizations</a>
                 <a class="dropdown-item" href=<%= admin_events_path %>>Events</a>
+                <a class="dropdown-item" href=<%= admin_users_path %>>Users</a>
               </div>
             </li>
 
@@ -95,6 +96,11 @@
     <footer class="footer mt-auto py-3">
       <div class="container">
         <span class="text-muted">Contact Information <br>mmoreno6@miuandes.cl jmiturralde@miuandes.cl</span>
+      </div>
+      <div class="container">
+        <span class="text-muted"><%= link_to "Use Policy", "https://www.termsofusegenerator.net/live.php?token=VK2gSEciBFNTkKjKV51lktJtLjjKdbaH", target: :_blank %>
+        and
+          <%= link_to "Terms of Service", "https://www.termsofservicegenerator.net/live.php?token=xkj6Tr57GXH1MvOZibVW1KnQWuVa7iEB", target: :_blank %></span>
       </div>
     </footer>
   </body>

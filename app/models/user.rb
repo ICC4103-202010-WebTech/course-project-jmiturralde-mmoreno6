@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :email, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
                              message: "invalid email address" }, uniqueness: true
+  validates_acceptance_of :terms, :allow_nil => false, :accept => true, :on => :create
+
   has_one :profile_page
   has_one :mail_box
   has_many :events
