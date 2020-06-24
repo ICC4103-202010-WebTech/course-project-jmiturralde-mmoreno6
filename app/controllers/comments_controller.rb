@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /comments
   # GET /comments.json
@@ -27,7 +28,7 @@ class CommentsController < ApplicationController
   def new
     @event= Event.find(params[:event_id])
 
-    if @user.id == Event.find(params[:event_id]).user.id
+    if current_user.id == Event.find(params[:event_id]).user.id
       redirect_back(fallback_location: root_path)
       flash[:alert] = "The event creator can't comment his own event"
     end
@@ -42,7 +43,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @event_invitation = EventInvitation.where("user_id = ? AND event_id = ?", @user.id, params[:event_id]).first
+    @event_invitation = EventInvitation.where("user_id = ? AND event_id = ?", current_user.id, params[:event_id]).first
     @comment = Comment.new(comment_params)
     @comment.event_invitation = @event_invitation
     @comment.event = Event.find(params[:event_id])

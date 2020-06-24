@@ -17,22 +17,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href=<%= root_path %>>Home <span class="sr-only">(current)</span></a>
-            </li>
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <a class="nav-link" href=<%= user_profile_pages_path(current_user) %>>Profile</a>
+              </li>
             <li class="nav-item">
-              <a class="nav-link" href=<%= user_profile_pages_path(@user) %>>Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=<%= user_mail_boxes_path(@user) %>>MailBox</a>
+              <a class="nav-link" href=<%= user_mail_boxes_path(current_user) %>>MailBox</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Events
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href=<%= user_events_path(@user) %>>My Events</a>
-                <a class="dropdown-item" href=<%= user_event_invitations_path(@user) %>>Upcoming Events</a>
+                <a class="dropdown-item" href=<%= user_events_path(current_user) %>>My Events</a>
+                <a class="dropdown-item" href=<%= user_event_invitations_path(current_user) %>>Upcoming Events</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -40,14 +38,13 @@
                 Organizations
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href=<%= user_organizations_path(@user) %>>My Organizations</a>
-                <a class="dropdown-item" href=<%= user_organization_invitations_path(@user) %>>Member Organizations</a>
+                <a class="dropdown-item" href=<%= user_organizations_path(current_user) %>>My Organizations</a>
+                <a class="dropdown-item" href=<%= user_organization_invitations_path(current_user) %>>Member Organizations</a>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href=<%= user_notifications_path(@user) %>>Notifications <span class="badge badge-dark"><%= @user.notifications.count %></span></a>
+              <a class="nav-link" href=<%= user_notifications_path(current_user) %>>Notifications <span class="badge badge-dark"><%= current_user.notifications.count %></span></a>
             </li>
-
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Admin
@@ -55,17 +52,26 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href=<%= admin_organizations_path %>>Organizations</a>
                 <a class="dropdown-item" href=<%= admin_events_path %>>Events</a>
+                <a class="dropdown-item" href=<%= admin_users_path %>>Users</a>
               </div>
             </li>
 
           </ul>
-          <span class="navbar-text mr-3">
-            Welcome, <%= @user.username %>
-          </span>
+            <span class="navbar-text mr-3">
+              Welcome, <%= current_user.username %>
+            </span>
+
           <form class="form-inline my-2 my-lg-0" action="/search">
             <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
+            <span class="d-inline ml-3">
+            <%= link_to "Sign Out",  destroy_user_session_path, method: :delete, class: ["btn", "btn-danger"] %>
+            </span>
+          <% else %>
+              <%= link_to "Register", new_user_registration_path, class: ["btn", "btn-primary", "mr-2"]  %>
+              <%= link_to "Log In", new_user_session_path, class: ["btn", "btn-primary"] %>
+          <% end %>
         </div>
       </nav>
     </header>
@@ -82,6 +88,7 @@
             <div id="alert" class="alert alert-danger"><%= alert %></div>
           </div>
         <% end %>
+
         <%= yield %>
       </main>
     </div>
@@ -89,6 +96,11 @@
     <footer class="footer mt-auto py-3">
       <div class="container">
         <span class="text-muted">Contact Information <br>mmoreno6@miuandes.cl jmiturralde@miuandes.cl</span>
+      </div>
+      <div class="container">
+        <span class="text-muted"><%= link_to "Use Policy", "https://www.termsofusegenerator.net/live.php?token=VK2gSEciBFNTkKjKV51lktJtLjjKdbaH", target: :_blank %>
+          &amp;
+          <%= link_to "Terms of Service", "https://www.termsofservicegenerator.net/live.php?token=xkj6Tr57GXH1MvOZibVW1KnQWuVa7iEB", target: :_blank %></span>
       </div>
     </footer>
   </body>

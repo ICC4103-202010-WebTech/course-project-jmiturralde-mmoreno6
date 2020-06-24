@@ -44,25 +44,26 @@
       <br>
       <%= form.file_field :images, multiple: true %>
     </div>
-
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"> Delete Invitation To: </h5>
-        <hr>
-        <%=form.fields_for :event_invitations do |event_invitations_form| %>
-          <div class="form-group">
-            <% if action_name == 'edit' %>
-              <%= event_invitations_form.label event_invitations_form.object.user.username %>
-              <%= event_invitations_form.check_box :_destroy %>
-            <% end %>
-          </div>
-        <% end %>
+    <% if params[:action] == 'edit' %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"> Delete Invitation To: </h5>
+          <hr>
+          <%=form.fields_for :event_invitations do |event_invitations_form| %>
+            <div class="form-group">
+              <% if action_name == 'edit' %>
+                <%= event_invitations_form.label event_invitations_form.object.user.username %>
+                <%= event_invitations_form.check_box :_destroy %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <%end %>
 
   <div class="form-group">
     <%= form.submit class:"btn btn-primary mt-3"%>
-    <%= link_to 'Back', user_events_path(@user), class:"btn btn-secondary mt-3"%>
+    <%= link_to 'Back', user_events_path(current_user), class:"btn btn-secondary mt-3"%>
   </div>
 <% end %>
 </div>

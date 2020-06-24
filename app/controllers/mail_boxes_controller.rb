@@ -1,5 +1,7 @@
 class MailBoxesController < ApplicationController
   before_action :set_mail_box, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+
 
   # GET /mail_boxes
   # GET /mail_boxes.json
@@ -10,8 +12,9 @@ class MailBoxesController < ApplicationController
   # GET /mail_boxes/1
   # GET /mail_boxes/1.json
   def show
-    @received_messages = User.find(params[:user_id]).mail_box.received_messages
-    @send_messages = User.find(params[:user_id]).mail_box.send_messages
+    @user = current_user
+    @received_messages = Message.where(receiver_username: @user.username)
+    @send_messages = @user.mail_box.messages.where(mail_box: @user.mail_box)
   end
 
   # GET /mail_boxes/new

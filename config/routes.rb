@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => {:registrations => "users/registrations",
+                                      omniauth_callbacks: 'users/omniauth_callbacks'}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "pages#home"
   get 'search', to: 'pages#search'
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
   resources :users do
     resource :profile_pages
     resource :mail_boxes do
-      resource :send_messages
+      resource :messages
     end
     resources :organizations, shallow: true
     resources  :organization_invitations, shallow: true
@@ -38,7 +40,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :organizations
+    resources :organizations, :users
     resources :events do
       resources :comments
     end

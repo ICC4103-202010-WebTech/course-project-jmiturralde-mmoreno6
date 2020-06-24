@@ -1,8 +1,7 @@
 
-<h1>My Organizations</h1>
+<h1>My Organizations<%= link_to 'Create New Organization', new_user_organization_path(current_user.id), class:"btn btn-info btn-sm mx-3"%></h1>
 <br>
-<tbody>
-<h3>My Created Organizations</h3>
+<h3 class="mb-4">My Created Organizations</h3>
 <% if @organizations != []%>
   <div class="row">
     <% @organizations.each do |organization| %>

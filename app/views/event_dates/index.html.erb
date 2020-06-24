@@ -5,13 +5,15 @@
     <thead>
     <tr>
       <th>Date</th>
+      <th>Number of Votes</th>
       <th>Action</th>
     </tr>
     </thead>
     <tbody>
-    <% @event_dates.each do |event_date| %>
+    <% @event_dates.zip(@users_votes).each do |event_date, vote|%>
       <tr>
         <td><%= event_date.event_date %></td>
+        <td><%= vote %></td>
         <td><%= link_to 'Destroy', event_event_date_path(event_date.event.id, event_date.id), class: 'btn btn-danger btn-sm', method: :delete %></td>
       </tr>
     <% end %>

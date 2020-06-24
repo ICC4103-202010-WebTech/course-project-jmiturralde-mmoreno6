@@ -64,8 +64,11 @@ namespace :db do
   end
 
   task :populate_fake_data => :environment do
+    puts "Creating Users"
     create_list(:user, 10)
+    puts "Creating Events"
     create_list(:event_with_event_invitations_and_comments, 15)
+    puts "Creating Organizations"
     create_list(:organization_with_organization_invitations, 10)
   end
 end

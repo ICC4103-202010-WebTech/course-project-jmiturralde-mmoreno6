@@ -1,5 +1,6 @@
 class Admin::OrganizationsController < ApplicationController
   before_action :set_admin_organization, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!
 
   # GET /admin/organizations
   # GET /admin/organizations.json
@@ -29,7 +30,7 @@ class Admin::OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @admin_organization.save
-        format.html { redirect_to @admin_organization, notice: 'Organization was successfully created.' }
+        format.html { redirect_to admin_organizations_path, notice: 'Organization was successfully created.' }
         format.json { render :show, status: :created, location: @admin_organization }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class Admin::OrganizationsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_organization.update(admin_organization_params)
-        format.html { redirect_to @admin_organization, notice: 'Organization was successfully updated.' }
+        format.html { redirect_to admin_organizations_path, notice: 'Organization was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_organization }
       else
         format.html { render :edit }

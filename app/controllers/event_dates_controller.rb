@@ -1,13 +1,17 @@
 class EventDatesController < ApplicationController
   before_action :set_event_date, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /event_dates
   # GET /event_dates.json
   def index
     @event_dates = Event.find(params[:event_id]).event_dates
     @creator_user = Event.find(params[:event_id]).user
+    @users_votes =[]
+    @event_dates.each do |date|
+      @users_votes.append(UserVote.where("event_date_id = ?", date).count)
+    end
   end
-
   # GET /event_dates/1
   # GET /event_dates/1.json
   def show

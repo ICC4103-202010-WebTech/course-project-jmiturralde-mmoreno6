@@ -9,7 +9,7 @@
       <p class="card-text font-italic text-center"><%= link_to organization.name , organization %></p>
       <div class="card mx-1 mb-3 bg-secondary" ></div>
       <p class="card-text mb-2 text-muted"><%= "Creation: " + organization.created_at.strftime("%d %h %Y at %I:%M%p") %></p>
-      <p class="card-text text-muted"><%="Description" + organization.description %></p>
+      <p class="card-text text-muted"><%="Description: " + organization.description %></p>
       <div class="d-flex justify-content-between align-items-center">
         <%if a == "my_organizations" %>
             <a href="<%= organization_path(organization.id) %>" class="btn btn-primary btn-sm ml-auto">View</a>

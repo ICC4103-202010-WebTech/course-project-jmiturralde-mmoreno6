@@ -1,0 +1,24 @@
+<h1 class="mb-5">Users Administration<%= link_to 'New User', new_admin_user_path, class:"btn btn-info btn-sm mx-3"  %></h1>
+
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>N</th>
+      <th>Username</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%counter=1 %>
+    <% @admin_users.each do |user| %>
+      <tr>
+        <td><%= counter %></td>
+        <td><%= user.username %></td>
+        <td><%= link_to 'Show', user_profile_pages_path(user), class:"btn btn-primary btn-sm" %><%= link_to 'Edit', edit_admin_user_path(user),class:"btn btn-primary btn-sm mx-2" %><%= link_to 'Destroy', admin_user_path(user), method: :delete, class:"btn btn-danger btn-sm" %></td>
+      </tr>
+      <% counter+=1 %>
+    <% end %>
+    </tbody>
+  </table>
+</div>

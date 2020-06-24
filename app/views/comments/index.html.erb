@@ -23,11 +23,7 @@
                   <%=image_tag(comment.comment_images[number], style:"width:100px")%>
                 <%end %>
               <%end %><br>
-
-
-
-
-          </div>
+           </div>
           <div class="col-sm-2">
             <span class="badge pull-right"><%= time_ago_in_words(comment.created_at) %> AGO</span>
             <%= link_to 'Reply', new_event_comment_path(@event, :commented_id => comment.id), class: 'btn btn-secondary mt-3 btn-sm'%></a>

@@ -2,11 +2,18 @@ require 'securerandom'
 
 include FactoryBot::Syntax::Methods
 FactoryBot.define do
+  factory :message do
+    receiver_username { "MyString" }
+    title { "MyString" }
+    boy { "MyString" }
+  end
+
   factory :user do
     username { Faker::Name.first_name }
     email { "#{username.gsub(/\s+/, "")}@example.com".downcase }
     system_admin {0}
     password {SecureRandom.alphanumeric(8)}
+    terms {true }
     after(:create) do |user|
       user.profile_page ||= create(:profile_page, :user => user)
       user.mail_box ||= create(:mail_box_with_messages, :user => user)
