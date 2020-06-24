@@ -10,14 +10,14 @@ class User < ApplicationRecord
                              message: "invalid email address" }, uniqueness: true
   validates_acceptance_of :terms, :allow_nil => false, :accept => true, :on => :create
 
-  has_one :profile_page
-  has_one :mail_box
-  has_many :events
-  has_many :event_invitations
+  has_one :profile_page, :dependent => :destroy
+  has_one :mail_box, :dependent => :destroy
+  has_many :events, :dependent => :destroy
+  has_many :event_invitations, :dependent => :destroy
   has_many :events, :through => :event_invitations
-  has_many :notifications
-  has_many :organizations
-  has_many :organization_invitations
+  has_many :notifications, :dependent => :destroy
+  has_many :organizations, :dependent => :destroy
+  has_many :organization_invitations, :dependent => :destroy
   has_many :organizations, :through => :organization_invitations
   has_many :comments, :through => :event_invitations
 

@@ -20,6 +20,7 @@ class Admin::UsersController < ApplicationController
 
   # GET /admin/users/1/edit
   def edit
+
     @admin_profile_page = @admin_user.profile_page
   end
 
@@ -42,15 +43,13 @@ class Admin::UsersController < ApplicationController
   # PATCH/PUT /admin/users/1
   # PATCH/PUT /admin/users/1.json
   def update
-    @admin_profile_page = ProfilePage.update(id: @admin_user.profile_page.id,
-                                             name: params[:user][:profile_page][:name],
-                                          last_name: params[:user][:profile_page][:last_name],
-                                          location: params[:user][:profile_page][:location],
-                                          bio: params[:user][:profile_page][:bio])
-    @admin_user.profile_page = @admin_profile_page
+    @admin_user.profile_page.update(name: params[:user][:profile_page][:name],
+                                    last_name: params[:user][:profile_page][:last_name],
+                                    location: params[:user][:profile_page][:location],
+                                    bio: params[:user][:profile_page][:bio])
     respond_to do |format|
       if @admin_user.update(admin_user_params)
-        format.html { redirect_to @admin_user, notice: 'User was successfully updated.' }
+        format.html { redirect_to admin_users_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_user }
       else
         format.html { render :edit }
@@ -77,6 +76,6 @@ class Admin::UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_user_params
-      params.fetch(:user, {}).permit(:username, :email, :name, :last_name, :location, :bio)
+      params.fetch(:user, {}).permit(:username, :email, :password, :name, :last_name, :location, :bio)
     end
 end

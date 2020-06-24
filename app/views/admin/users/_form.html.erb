@@ -10,37 +10,50 @@
       </ul>
     </div>
   <% end %>
-
+  <p class="font-italic mt-4">Account information</p>
   <div class="actions">
-    <div class="form-group">
-      <%= form.label :username %>
-      <%= form.text_field :username, class: "form-control" %>
+    <div class="row">
+      <div class="form-group col-10">
+        <%= form.label :username %>
+        <%= form.text_field :username, class: "form-control" %>
+      </div>
+      <div class="form-group col-10">
+        <%= form.label :email %>
+        <%= form.email_field :email, class: "form-control" %>
+      </div>
+      <div class="form-group col-10">
+        <%= form.label :Password %>
+        <%= form.password_field :password, class: "form-control", autocomplete: "password", placeholder:"New Password" %>
+      </div>
+      <div class="card mx-4 mb-3 bg-secondary col-9" ></div>
     </div>
-    <div class="form-group">
-      <%= form.label :email %>
-      <%= form.email_field :email, class: "form-control" %>
-    </div>
-
+    <p class="font-italic">Personal information</p>
     <div class="form-group">
       <%= form.fields_for [:admin, @admin_profile_page] do |pf_form| %>
-        <div class="field">
-          <%= pf_form.label :name %><br />
-          <%= pf_form.text_field :name %>
+        <div class="row">
+          <div class="form-group col-5">
+            <%= pf_form.label :name %><br />
+            <%= pf_form.text_field :name, class: "form-control" %>
+          </div>
+          <div class="form-group col-5">
+            <%= pf_form.label :last_name %><br />
+            <%= pf_form.text_field :last_name, class: "form-control" %>
+          </div>
         </div>
-        <div class="field">
-          <%= pf_form.label :last_name %><br />
-          <%= pf_form.text_field :last_name %>
+        <div class="row">
+          <div class="form-group col-10">
+            <%= pf_form.label :location %><br />
+            <%= pf_form.text_field :location, class: "form-control" %>
+          </div>
+          <div class="form-group col-10">
+            <%= pf_form.label :bio %><br />
+            <%= pf_form.text_area :bio, class: "form-control" %>
+          </div>
         </div>
-        <div class="field">
-          <%= pf_form.label :location %><br />
-          <%= pf_form.text_field :location %>
-        </div>
-        <div class="field">
-          <%= pf_form.label :bio %><br />
-          <%= pf_form.text_area :bio %>
-        </div>
+
       <% end %>
     </div>
-    <%= form.submit %>
+    <%= form.submit class: ["btn", "btn-primary"] %>
+    <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
   </div>
 <% end %>

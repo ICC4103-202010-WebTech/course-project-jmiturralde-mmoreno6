@@ -30,7 +30,7 @@ class Admin::EventsController < ApplicationController
 
     respond_to do |format|
       if @admin_event.save
-        format.html { redirect_to @admin_event, notice: 'Event was successfully created.' }
+        format.html { redirect_to admin_events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @admin_event }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class Admin::EventsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_event.update(admin_event_params)
-        format.html { redirect_to @admin_event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to admin_events_path, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_event }
       else
         format.html { render :edit }
