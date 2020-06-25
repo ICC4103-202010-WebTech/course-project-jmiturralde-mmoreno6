@@ -52,6 +52,8 @@ group :development do
   gem 'omniauth-google-oauth2'
   #Recovery password email
   gem 'dotenv-rails'
+  #cancancan
+  gem 'cancancan'
 
 end
 

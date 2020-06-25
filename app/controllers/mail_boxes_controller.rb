@@ -2,7 +2,6 @@ class MailBoxesController < ApplicationController
   before_action :set_mail_box, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-
   # GET /mail_boxes
   # GET /mail_boxes.json
   def index
