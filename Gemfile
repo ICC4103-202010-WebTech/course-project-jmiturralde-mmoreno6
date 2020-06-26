@@ -43,10 +43,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  #Fake data
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
   gem 'faker', '~> 2.11'
-
-  #auth
+  #Auth
   gem 'devise'
   gem 'omniauth'
   gem 'omniauth-google-oauth2'

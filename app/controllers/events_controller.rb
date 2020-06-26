@@ -68,6 +68,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def new_invitation
+    @ticket_type = EventInvitation.new
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

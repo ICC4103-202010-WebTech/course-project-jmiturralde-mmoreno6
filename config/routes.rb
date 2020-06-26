@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     end
     resources :organizations, shallow: true
     resources  :organization_invitations, shallow: true
-    resources :events, shallow: true
+    resources :events, shallow: true do
+      get 'new_invitation', as: :new_invitation_otf
+    end
     resources  :event_invitations, shallow: true
     resources :notifications
   end
