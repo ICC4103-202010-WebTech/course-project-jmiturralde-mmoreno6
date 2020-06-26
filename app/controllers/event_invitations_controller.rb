@@ -8,7 +8,6 @@ class EventInvitationsController < ApplicationController
   # GET /event_invitations.json
   def index
     @event_invitations = User.find(params[:user_id]).events
-    @user = User.find(params[:user_id])
   end
   # GET /event_invitations/1
   # GET /event_invitations/1.json
@@ -49,13 +48,21 @@ class EventInvitationsController < ApplicationController
   # PATCH/PUT /event_invitations/1
   # PATCH/PUT /event_invitations/1.json
   def update
-    respond_to do |format|
-      if @event_invitation.update(event_invitation_params)
-        format.html { redirect_to @event_invitation, notice: 'Event invitation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event_invitation }
-      else
-        format.html { render :edit }
-        format.json { render json: @event_invitation.errors, status: :unprocessable_entity }
+    if @event_invitation.report?
+      redirect_back(fallback_location: root_path)
+      flash[:alert] = "You had already report this event."
+    else
+      unless params[:report].nil?
+        @event_invitation.report = true
+      end
+      respond_to do |format|
+        if @event_invitation.update(event_invitation_params)
+          format.html { redirect_to request.referrer, notice: 'Event was successfully reported.' }
+          format.json { render :show, status: :ok, location: @event_invitation }
+        else
+          format.html { render request.referrer }
+          format.json { render json: @event_invitation.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

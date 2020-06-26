@@ -21,7 +21,7 @@ class User < ApplicationRecord
   has_many :organizations, :through => :organization_invitations
   has_many :comments, :through => :event_invitations
 
-  accepts_nested_attributes_for :profile_page
+  accepts_nested_attributes_for :profile_page, allow_destroy: true
 
   after_initialize :default_values
   after_create :create_base

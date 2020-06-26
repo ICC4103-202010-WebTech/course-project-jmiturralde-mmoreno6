@@ -25,11 +25,15 @@
         <%= form.label :Password %>
         <%= form.password_field :password, class: "form-control", autocomplete: "password", placeholder:"New Password" %>
       </div>
+      <div class="form-group col-10">
+        <%= form.label :admin %>
+        <%= form.check_box :system_admin %>
+      </div>
       <div class="card mx-4 mb-3 bg-secondary col-9" ></div>
     </div>
     <p class="font-italic">Personal information</p>
     <div class="form-group">
-      <%= form.fields_for [:admin, @admin_profile_page] do |pf_form| %>
+      <%= form.fields_for @admin_profile_page do |pf_form| %>
         <div class="row">
           <div class="form-group col-5">
             <%= pf_form.label :name %><br />

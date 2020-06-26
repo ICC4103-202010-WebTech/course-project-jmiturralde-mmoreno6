@@ -62,7 +62,7 @@ class EventsController < ApplicationController
     begin
       @event.destroy
       redirect_back(fallback_location: root_path)
-      flash[:notice] = "The event has been destroyed"
+      flash[:notice] = "The event has been deleted"
     rescue
       flash[:alert] = "Could not delete the event!"
     end

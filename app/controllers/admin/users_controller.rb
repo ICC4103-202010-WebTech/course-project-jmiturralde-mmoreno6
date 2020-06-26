@@ -37,7 +37,8 @@ class Admin::UsersController < ApplicationController
     password = params[:user][:password]
     email = params[:user][:email]
     terms = true
-    @admin_user = User.new(email: email, password: password, username: username, terms: terms)
+    system_admin = params[:user][:system_admin]
+    @admin_user = User.new(email: email, password: password, username: username, terms: terms, system_admin: system_admin)
     @admin_user.profile_page = @profile_page
     respond_to do |format|
       if @admin_user.save
@@ -57,15 +58,24 @@ class Admin::UsersController < ApplicationController
                                     last_name: params[:user][:profile_page][:last_name],
                                     location: params[:user][:profile_page][:location],
                                     bio: params[:user][:profile_page][:bio])
-    respond_to do |format|
-      if @admin_user.update(admin_user_params)
-        format.html { redirect_to admin_users_path, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_user }
-      else
-        format.html { render :edit }
-        format.json { render json: @admin_user.errors, status: :unprocessable_entity }
+    if (params[:user][:password].length < 6) &&  (0 < params[:user][:password].length)
+      flash[:alert] = "Password too short"
+      redirect_back(fallback_location: root_path)
+    else
+      if params[:user][:password] == ""
+        params[:user].delete(:password)
+        end
+      respond_to do |format|
+        if @admin_user.update(admin_user_params)
+          format.html { redirect_to admin_users_path, notice: 'User was successfully updated.' }
+          format.json { render :show, status: :ok, location: @admin_user }
+        else
+          format.html { render :edit }
+          format.json { render json: @admin_user.errors, status: :unprocessable_entity }
+        end
       end
     end
+
   end
 
   # DELETE /admin/users/1
@@ -86,6 +96,6 @@ class Admin::UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_user_params
-      params.fetch(:user, {}).permit(:username, :email, :password, :name, :last_name, :location, :bio)
+      params.fetch(:user, {}).permit(:username, :email, :password, :system_admin)
     end
 end

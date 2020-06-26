@@ -7,6 +7,7 @@ class EventInvitation < ApplicationRecord
   after_initialize :default_values
   before_destroy :send_notification_event_delete
   after_create :send_notification_event_create
+  before_update :check_report_event, :if => :report_changed?
 
   private
   def default_values
@@ -19,6 +20,13 @@ class EventInvitation < ApplicationRecord
 
   def send_notification_event_delete
     Notification.create(user: self.user, notification_type: 2)
+  end
+
+  def check_report_event
+    reports_count = EventInvitation.where(event_id: self.event_id, report: true).count
+    if reports_count > 2
+      Event.destroy(self.event_id)
+    end
   end
 
 end

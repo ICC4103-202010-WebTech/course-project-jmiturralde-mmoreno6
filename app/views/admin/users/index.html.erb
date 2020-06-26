@@ -20,7 +20,11 @@
         <td><%= user.username %></td>
         <td><%= user.email %></td>
         <td><%= user.system_admin? ? 'Admin' : 'User' %></td>
-        <td><%= user.last_sign_in_at.strftime("%d %h %Y at %I:%M%p") %></td>
+        <td>
+        <% unless user.last_sign_in_at.nil? %>
+        <%= user.last_sign_in_at.strftime("%d %h %Y at %I:%M%p") %>
+        <% end %>
+        </td>
         <td><%= link_to 'Show', user_profile_pages_path(user), class:"btn btn-primary btn-sm" %><%= link_to 'Edit', edit_admin_user_path(user),class:"btn btn-primary btn-sm mx-2" %><%= link_to 'Destroy', admin_user_path(user), method: :delete, class:"btn btn-danger btn-sm" %></td>
       </tr>
       <% counter+=1 %>
