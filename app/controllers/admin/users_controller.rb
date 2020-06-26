@@ -16,26 +16,36 @@ class Admin::UsersController < ApplicationController
   # GET /admin/users/new
   def new
     @admin_user = User.new
+    @admin_profile_page = ProfilePage.new
+    @admin_user.profile_page = @admin_profile_page
   end
 
   # GET /admin/users/1/edit
   def edit
-
     @admin_profile_page = @admin_user.profile_page
   end
 
   # POST /admin/users
   # POST /admin/users.json
   def create
-    @admin_user = User.new(admin_user_params)
-
+    name = params[:user][:profile_page][:name]
+    last_name = params[:user][:profile_page][:last_name]
+    location = params[:user][:profile_page][:location]
+    bio = params[:user][:profile_page][:bio]
+    @profile_page = ProfilePage.new(name: name, last_name: last_name, location: location, bio: bio)
+    username = params[:user][:username]
+    password = params[:user][:password]
+    email = params[:user][:email]
+    terms = true
+    @admin_user = User.new(email: email, password: password, username: username, terms: terms)
+    @admin_user.profile_page = @profile_page
     respond_to do |format|
       if @admin_user.save
-        format.html { redirect_to @admin_user, notice: 'User was successfully created.' }
+        format.html { redirect_to admin_users_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @admin_user }
       else
         format.html { render :new }
-        format.json { render json: @admin_user.errors, status: :unprocessable_entity }
+        format.json { render json: admin_users_path.errors, status: :unprocessable_entity }
       end
     end
   end

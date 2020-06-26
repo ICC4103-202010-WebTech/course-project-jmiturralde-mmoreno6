@@ -20,8 +20,10 @@
             <%= link_to 'Destroy', event_path(event.id), class: 'btn btn-danger btn-sm', method: :delete %>
           <%elsif a == "upcoming_events"%>
             <a href="<%= event_path(event.id) %>" class="btn btn-primary">View</a>
-            <a href="<%= new_event_invitation_user_vote_path(@user.event_invitations.find_by(event: event.id).id) %>" class="btn btn-secondary">Go to Vote</a>
-        <%end %>
+            <% unless event.start_event_date_vote? %>
+             <a href="<%= new_event_invitation_user_vote_path(@user.event_invitations.find_by(event: event.id).id) %>" class="btn btn-secondary">Go to Vote</a>
+            <%end %>
+          <%end %>
       </div>
     </div>
   </div>
