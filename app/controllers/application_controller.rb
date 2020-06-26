@@ -1,14 +1,18 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  load_and_authorize_resource :user
-  load_and_authorize_resource :event
-  load_and_authorize_resource :event_invitation
-  load_and_authorize_resource :organization
-  load_and_authorize_resource :organization_invitation
+
 
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
-      format.html { redirect_to root_path, alert: exception.message }
+      url = request.referrer
+      if url.nil?
+        url ||= root_path
+      end
+      if exception.subject.class.name == 'Organization'
+        format.html { redirect_to url, alert: 'You are not part of this Organization' }
+      else
+        format.html { redirect_to url, alert: exception.message }
+      end
     end
   end
 

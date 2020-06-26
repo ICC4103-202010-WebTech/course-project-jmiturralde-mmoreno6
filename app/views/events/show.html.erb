@@ -31,7 +31,15 @@
     </div>
     <div class="col-md-7">
       <div class="profile-info">
-        <h3 class="display-3"><%= @event.title%></h3><br>
+        <h3 class="display-3"><%= @event.title%></h3>
+        <% if @event.start_event_date_vote? %>
+        <p class="font-italic">Event Date:  <%= @event.start_event_date_vote.strftime("%d %h %Y at %I:%M%p")  %></p>
+          <% else %>
+          <p class="font-italic">Event Date: undefined </p>
+        <% end %>
+        <% if @event.organization_id? %>
+          <p class="font-italic">Organization:  <%= link_to @event.organization.name, organization_path(@event.organization.id)  %></p>
+        <% end %>
         <p class="font-italic"><%= "Location:  " + @event.location  %></p>
         <p class="font-italic"><%= "Description:  " + @event.description  %></p>
           <%= link_to "See Comments", event_comments_path(@event), class: ["btn", "btn-primary"] %>

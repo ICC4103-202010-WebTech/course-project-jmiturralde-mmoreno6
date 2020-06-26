@@ -14,7 +14,8 @@
       <tr>
         <td><%= event_date.event_date %></td>
         <td><%= vote %></td>
-        <td><%= link_to 'Destroy', event_event_date_path(event_date.event.id, event_date.id), class: 'btn btn-danger btn-sm', method: :delete %></td>
+        <td><%= link_to 'Select', event_path(event_date.event.id, :start_event_date_vote => event_date.event_date), class: 'btn btn-secondary btn-sm', data: { confirm: "Use this date for the event?" }, method: :put %>
+          <%= link_to 'Destroy', event_event_date_path(event_date.event.id, event_date.id), class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
     </tbody>

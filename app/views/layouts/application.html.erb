@@ -87,9 +87,17 @@
           </div>
         <% end %>
         <% if alert.present? %>
-          <div class="row ml-0 mt-3" role="alert">
-            <div id="alert" class="alert alert-danger"><%= alert %></div>
-          </div>
+          <% if alert.is_a? Enumerable %>
+            <% alert.each do |a| %>
+              <div class="row ml-0" role="alert">
+                <div id="alert" class="alert alert-danger"><%= a %></div>
+              </div>
+            <% end %>
+            <%else %>
+            <div class="row ml-0 mt-3" role="alert">
+              <div id="alert" class="alert alert-danger"><%= alert %></div>
+            </div>
+            <% end %>
         <% end %>
 
         <%= yield %>

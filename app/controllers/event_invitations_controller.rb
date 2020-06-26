@@ -1,6 +1,8 @@
 class EventInvitationsController < ApplicationController
   before_action :set_event_invitation, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource :user
+  load_and_authorize_resource :event
 
   # GET /event_invitations
   # GET /event_invitations.json

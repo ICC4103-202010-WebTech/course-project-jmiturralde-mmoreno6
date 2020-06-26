@@ -1,6 +1,7 @@
 class ProfilePagesController < ApplicationController
   before_action :set_profile_page, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource :user
 
   # GET /profile_pages
   # GET /profile_pages.json

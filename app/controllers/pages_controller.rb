@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
   def search
 
     #user search

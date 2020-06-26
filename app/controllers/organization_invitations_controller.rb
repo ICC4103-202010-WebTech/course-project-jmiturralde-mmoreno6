@@ -1,6 +1,8 @@
 class OrganizationInvitationsController < ApplicationController
   before_action :set_organization_invitation, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource :organization
+  load_and_authorize_resource :user
 
   # GET /organization_invitations
   # GET /organization_invitations.json

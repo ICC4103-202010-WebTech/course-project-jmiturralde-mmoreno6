@@ -1,6 +1,7 @@
 class UserVotesController < ApplicationController
   before_action :set_user_vote, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource :event_invitation
 
   # GET /user_votes
   # GET /user_votes.json
