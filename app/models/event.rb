@@ -5,9 +5,6 @@ class Event < ApplicationRecord
   has_many :users, :through => :event_invitations
   has_many :event_dates, :dependent => :destroy
   has_many :user_votes, :through => :event_dates
-  has_many :image_event_pages, :dependent => :destroy
-  has_many :video_event_pages, :dependent => :destroy
-  has_many :pdf_event_pages, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_one_attached :event_picture
   has_many_attached :documents
@@ -17,6 +14,7 @@ class Event < ApplicationRecord
 
   after_initialize :default_values
   before_update :send_notification, :if => :start_event_date_vote_changed?
+
 
   private
   def default_values

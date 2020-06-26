@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   has_one :profile_page, :dependent => :destroy
   has_one :mail_box, :dependent => :destroy
-  has_many :events, :dependent => :destroy
+  has_many :events
   has_many :event_invitations, :dependent => :destroy
   has_many :events, :through => :event_invitations
   has_many :notifications, :dependent => :destroy
@@ -25,6 +25,7 @@ class User < ApplicationRecord
 
   after_initialize :default_values
   after_create :create_base
+  before_destroy :delete_events, prepend: true
 
   private
   def default_values
@@ -39,5 +40,14 @@ class User < ApplicationRecord
     require 'securerandom'
     username = (first_name + last_name.delete(' ')).downcase
     create_with(uid: uid, username: username, password: SecureRandom.urlsafe_base64, terms: true).find_or_create_by!(email: email)
+  end
+
+  def delete_events
+    byebug
+    self.events.each do |e|
+      byebug
+      e.destroy
+    end
+    byebug
   end
 end

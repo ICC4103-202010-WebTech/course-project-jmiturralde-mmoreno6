@@ -3,17 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="defb9cd1-f657-4276-92af-6aed7643295d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/comments_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/event_invitations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/event_invitations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/event_invitation.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event_invitation.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/event.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/organization.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/organization.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/comments/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/comments/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/comments/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/comments/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/users/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/users/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/users/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/users/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/_event_tile.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/_event_tile.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418180441_create_image_organization_pages.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418180451_create_video_organization_pages.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200418180503_create_pdf_organization_pages.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200419214753_create_image_event_pages.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200419214856_create_video_event_pages.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200419214904_create_pdf_event_pages.rb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

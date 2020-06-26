@@ -3,9 +3,6 @@ class Organization < ApplicationRecord
   has_many :organization_invitations, :dependent => :destroy
   has_many :events, :dependent => :destroy
   has_many :users, :through => :organization_invitations
-  has_many :image_organization_pages, :dependent => :destroy
-  has_many :video_organization_pages, :dependent => :destroy
-  has_many :pdf_organization_pages, :dependent => :destroy
   has_one_attached :organization_picture
   has_many_attached :documents
   has_many_attached :videos
