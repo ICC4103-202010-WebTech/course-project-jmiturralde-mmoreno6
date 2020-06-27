@@ -44,9 +44,11 @@
       <br>
       <%= form.file_field :images, multiple: true %>
     </div>
-    <% if action_name == 'new' %>
-      <%= link_to "Add Invitation", new_invitation_otf_path,
-                  class: [ 'btn', 'btn-primary'], remote: true %>
+    <% if params[:action] == 'new' %>
+      <div class="form-group">
+        <%= form.label :organization %>
+        <%= form.collection_select(:organization_id, current_user.organizations.order(name: :asc), :id, :name, {}, { class: "form-control" }) %>
+      </div>
     <% elsif params[:action] == 'edit' %>
       <div class="card">
         <div class="card-body">

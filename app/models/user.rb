@@ -43,11 +43,8 @@ class User < ApplicationRecord
   end
 
   def delete_events
-    byebug
-    self.events.each do |e|
-      byebug
+    Event.where(:user_id => self.id).each do |e|
       e.destroy
     end
-    byebug
   end
 end

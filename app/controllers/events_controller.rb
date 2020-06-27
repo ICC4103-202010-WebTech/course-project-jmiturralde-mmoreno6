@@ -27,9 +27,10 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+
     @event = Event.new(event_params)
     @event.user_id = current_user.id
-
+    byebug
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -68,13 +69,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def new_invitation
-    @ticket_type = EventInvitation.new
-    respond_to do |format|
-      format.js
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -83,7 +77,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.fetch(:event, {}).permit(:title, :description, :location, :event_picture,
+      params.fetch(:event, {}).permit(:title, :description, :location, :event_picture, :organization_id,
                                       event_invitations_attributes: [:id, :_destroy], documents: [],
                                       videos: [], images: [])
     end
