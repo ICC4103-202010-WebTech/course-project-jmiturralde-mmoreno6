@@ -46,8 +46,8 @@
     </div>
     <% if params[:action] == 'new' %>
       <div class="form-group">
-        <%= form.label :organization %>
-        <%= form.collection_select(:organization_id, current_user.organizations.order(name: :asc), :id, :name, {}, { class: "form-control" }) %>
+        <%= form.label :organization %> (leave blank if you don't want to add one)
+        <%= form.collection_select(:organization_id, Organization.where(:user_id => current_user.id).order(name: :asc), :id, :name, {include_blank: "Select Organization"}, { class: "form-control" }) %>
       </div>
     <% elsif params[:action] == 'edit' %>
       <div class="card">

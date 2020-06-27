@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :event_invitations, :dependent => :destroy
   has_many :events, :through => :event_invitations
   has_many :notifications, :dependent => :destroy
-  has_many :organizations, :dependent => :destroy
+  has_many :organizations
   has_many :organization_invitations, :dependent => :destroy
   has_many :organizations, :through => :organization_invitations
   has_many :comments, :through => :event_invitations
@@ -26,6 +26,7 @@ class User < ApplicationRecord
   after_initialize :default_values
   after_create :create_base
   before_destroy :delete_events, prepend: true
+  before_destroy :delete_organizations, prepend: true
 
   private
   def default_values
@@ -43,8 +44,15 @@ class User < ApplicationRecord
   end
 
   def delete_events
-    Event.where(:user_id => self.id).each do |e|
+    Event.where("user_id=?",self.id).each do |e|
       e.destroy
     end
   end
+
+  def delete_organizations
+    Organization.where("user_id=?",self.id).each do |o|
+      o.destroy
+    end
+  end
 end
+

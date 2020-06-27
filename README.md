@@ -1,17 +1,25 @@
 ##### Martin Moreno - Jose Miguel Iturralde
 
-[Postman Collection](https://www.getpostman.com/collections/13a0517fc64e00e3397d)
+[Download API Postman Collection](https://www.getpostman.com/collections/13a0517fc64e00e3397d)
 
-[Relational Model](https://www.lucidchart.com/publicSegments/view/436bfc59-eb5b-432b-877b-fff0ded0125b/image.png)
+## Course Project Part 4
 
-## Course Project Part 3
+The fake data will create model records of: users, profile pages, mail box, events, organizations, comments, comments replies, events invitations and organization invitations.
 
-<b>To change the user logged in, specify in controllers/application_controller.rb another user id</b>
+Run the following commands to launch the application:
+<pre><code>yarn install --check-files
+bundle install
+rake db:migrate
+rake db:populate_fake_data
+rake admin:create_admin_user # This will let you set the password of the 
+admin user of the application, email: admin@eventsapp.com</code></pre>
 
-The fake data will create model records of: users, profile pages, mail box, messages, events, organizations, comments, comments replies, events invitations and organization invitations.
+To login with a regular user:
+1. Login with the newly created admin account (email: admin@eventsapp.com)
+2. Go to Admin > Users
+3. Go to Edit any user
+4. Change the password field and click Update User
+5. Now you can login with the mail and password of this account
 
-To populate the application run:
-<pre><code>rake db:populate_fake_data
-</code></pre>
 
-For correction purposes and only for this assignment, the admin view will be able to all register users
+* Report events: a event will be automatically deleted if it has been reported twice

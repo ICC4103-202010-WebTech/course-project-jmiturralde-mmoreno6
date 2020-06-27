@@ -15,7 +15,7 @@
 
     <div class="form-group">
       <%= form.label :receiver_username %>
-      <%= form.collection_select(:receiver_username, User.all.where("id != ?", current_user.id).order(username: :asc), :username, :username, {}, { class: "form-control" }) %>
+      <%= form.collection_select(:receiver_username, User.all.where("id != ? AND system_admin !=?", current_user.id, true).order(username: :asc), :username, :username, {}, { class: "form-control" }) %>
     </div>
 
     <div class="form-group">

@@ -79,22 +79,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_010158) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "hyper_link_comments", force: :cascade do |t|
-    t.string "hyperlink"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "comment_id"
-    t.index ["comment_id"], name: "index_hyper_link_comments_on_comment_id"
-  end
-
-  create_table "image_comments", force: :cascade do |t|
-    t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "comment_id"
-    t.index ["comment_id"], name: "index_image_comments_on_comment_id"
-  end
-
   create_table "mail_boxes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -192,8 +176,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_010158) do
   add_foreign_key "event_invitations", "users"
   add_foreign_key "events", "organizations"
   add_foreign_key "events", "users"
-  add_foreign_key "hyper_link_comments", "comments"
-  add_foreign_key "image_comments", "comments"
   add_foreign_key "mail_boxes", "users"
   add_foreign_key "messages", "mail_boxes"
   add_foreign_key "notifications", "users"

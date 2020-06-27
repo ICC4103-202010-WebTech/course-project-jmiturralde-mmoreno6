@@ -24,7 +24,7 @@ class EventInvitation < ApplicationRecord
 
   def check_report_event
     reports_count = EventInvitation.where(event_id: self.event_id, report: true).count
-    if reports_count > 2
+    if reports_count >= 1
       Event.destroy(self.event_id)
     end
   end

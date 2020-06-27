@@ -7,6 +7,7 @@
     <tr>
       <th>N</th>
       <th>Name</th>
+      <th>User creator</th>
       <th>Action</th>
       <th>CRUD Comments</th>
     </tr>
@@ -16,7 +17,8 @@
     <% @admin_events.each do |admin_event| %>
       <tr>
         <td><%= @counter %></td>
-        <td style="width: 50%"><%= admin_event.title %></td>
+        <td style="width: 30%"><%= admin_event.title %></td>
+        <td>@<%= admin_event.user.username %></td>
         <td><%= link_to 'Show', admin_event, class:"btn btn-primary btn-sm" %><%= link_to 'Edit', edit_admin_event_path(admin_event),class:"btn btn-primary btn-sm mx-2" %><%= link_to 'Destroy', admin_event_path(admin_event), method: :delete, class:"btn btn-danger btn-sm" %></td>
         <td><%= link_to "Total comments: "+admin_event.comments.count.to_s, admin_event_comments_path(admin_event) %></td>
       </tr>

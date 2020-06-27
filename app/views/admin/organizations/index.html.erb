@@ -6,6 +6,7 @@
     <tr>
       <th>N</th>
       <th>Name</th>
+      <th>User creator</th>
       <th>Action</th>
     </tr>
     </thead>
@@ -14,7 +15,8 @@
     <% @admin_organizations.each do |admin_organization| %>
       <tr>
         <td><%= @counter %></td>
-        <td><%= admin_organization.name %></td>
+        <td style="width: 30%"><%= admin_organization.name %></td>
+        <td>@<%= admin_organization.user.username %></td>
         <td><%= link_to 'Show', admin_organization, class:"btn btn-primary btn-sm" %><%= link_to 'Edit', edit_admin_organization_path(admin_organization),class:"btn btn-primary btn-sm mx-2" %><%= link_to 'Destroy', admin_organization_path(admin_organization), method: :delete, class:"btn btn-danger btn-sm" %></td>
       </tr>
       <% @counter+=1 %>
