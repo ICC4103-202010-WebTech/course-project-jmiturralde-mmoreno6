@@ -44,14 +44,14 @@
     <div class="col-md-7">
       <div class="profile-info">
         <h3 class="display-3"><%= @profile_page.name + " " + @profile_page.last_name %></h3>
-        <h3 class="display-5"><%= "@" + @profile_page.user.username %></h3><br><br>
+        <h3 class="display-5"><%= "@" + @profile_page.user.username %></h3><br>
         <% if @profile_page.location? %>
-        <p class="font-italic"><%= "Location:  " + @profile_page.location %></p>
+        <p class="font-italic"><b>Location: </b><%= @profile_page.location %></p>
           <% else %>
           <p><%= link_to "Add Location", edit_user_profile_pages_path(current_user) %></p>
           <% end %>
         <% if @profile_page.bio? %>
-        <p class="font-italic"><%= "Short bio: " + @profile_page.bio %></p>
+        <p class="font-italic"><b>Short Bio: </b><%= @profile_page.bio %></p>
           <%else %>
         <p><%= link_to "Add Short Bio", edit_user_profile_pages_path(current_user) %></p>
           <% end %>

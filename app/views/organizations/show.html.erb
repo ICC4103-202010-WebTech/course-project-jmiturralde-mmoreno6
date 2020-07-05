@@ -32,8 +32,8 @@
   <div class="col-md-7">
     <div class="profile-info">
       <h3 class="display-3"><%= @organization.name%></h3><br>
-      <p class="font-italic"><%= "Creation:  " + @organization.created_at.strftime("%d %h %Y at %I:%M%p")  %></p>
-      <p class="font-italic"><%= "Description:  " + @organization.description  %></p><br>
+      <p class="font-italic"><b>Creation: </b><%= @organization.created_at.strftime("%d %h %Y at %I:%M%p")  %></p>
+      <p class="font-italic"><b>Description: </b><%= @organization.description  %></p><br>
       <%if @organization.images.attached? %>
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#img">Image gallery</button>
       <%end %>
