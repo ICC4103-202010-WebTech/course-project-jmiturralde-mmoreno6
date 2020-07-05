@@ -1,9 +1,8 @@
 class PagesController < ApplicationController
 
   def search
-
     #user search
-    @users = User.all.where("username LIKE ?", params[:q] + '%')
+    @users = User.all.where("username LIKE ? AND system_admin = ?", params[:q] + '%', false)
     @profile_pages = ProfilePage.all.where("name LIKE ?", params[:q] + '%')
     @distinct_profile_pages =[]
     if @users != []

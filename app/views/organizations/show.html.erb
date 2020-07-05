@@ -98,24 +98,11 @@
 
 <h3>Organization Public Events</h3>
 <% if @events_organization != []%>
-  <table style="width: 70%">
-    <thead>
-    <tr>
-      <th>N</th>
-      <th>Location</th>
-      <th>Minimum guest</th>
-    </tr>
-    </thead>
-    <% index = 1 %>
+  <div class="row">
     <% @events_organization.each do |event| %>
-      <tr>
-        <td><%= index %></td>
-        <td><%= event.location %></td>
-        <td><%= event.minimum_guest %></td>
-      </tr>
-      <% index += 1 %>
+      <%= render partial: 'events/event_tile', locals: { event: event, a: "m"} %>
     <% end %>
-  </table>
+  </div>
 <% else %>
   <p>This organization doesn't have any public event :(</p>
 <% end %>

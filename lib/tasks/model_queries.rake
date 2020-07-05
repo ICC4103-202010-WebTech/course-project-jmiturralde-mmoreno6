@@ -65,10 +65,10 @@ namespace :db do
 
   task :populate_fake_data => :environment do
     puts "Creating Users"
-    create_list(:user, 10)
+    create_list(:user, 5)
     puts "Creating Events"
-    create_list(:event_with_event_invitations_and_comments, 15)
+    create_list(:event_with_event_invitations_and_comments, 5)
     puts "Creating Organizations"
-    create_list(:organization_with_organization_invitations, 10)
+    create_list(:organization_with_organization_invitations, 2)
   end
 end

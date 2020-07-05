@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="defb9cd1-f657-4276-92af-6aed7643295d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/pages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/pages_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ability.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ability.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/event_invitations/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/event_invitations/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organizations/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/_form.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/organizations/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/pages/home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/home.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tasks/model_queries.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/model_queries.rake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/factories.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/factories.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,6 +242,7 @@
       <workItem from="1593053762872" duration="271000" />
       <workItem from="1593106494663" duration="13076000" />
       <workItem from="1593910867462" duration="5606000" />
+      <workItem from="1593983812075" duration="4881000" />
     </task>
     <servers />
   </component>

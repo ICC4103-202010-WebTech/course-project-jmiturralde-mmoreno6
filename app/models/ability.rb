@@ -31,6 +31,7 @@ class Ability
         can :manage, Organization do |org|
           (organization_admins.include? org.id or org.user_id == user.id)
         end
+        can :create, Organization
         can :manage, OrganizationInvitation, user_id: user.id
         can :read, Organization do |org|
           organization_invitations.include? org.id

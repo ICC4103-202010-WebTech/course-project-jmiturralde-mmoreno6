@@ -2,12 +2,6 @@ require 'securerandom'
 
 include FactoryBot::Syntax::Methods
 FactoryBot.define do
-  factory :message do
-    receiver_username { "MyString" }
-    title { "MyString" }
-    boy { "MyString" }
-  end
-
   factory :user do
     username { Faker::Name.first_name }
     email { "#{username.gsub(/\s+/, "")}@example.com".downcase }
@@ -24,29 +18,23 @@ FactoryBot.define do
     #user
     factory :mail_box_with_messages do
       transient do
-        send_messages_count { rand(1..6) }
-        received_messages_count { rand(1..6) }
+        messages_count { rand(1..3) }
       end
 
       after(:create) do |mail_box, evaluator|
-        create_list(:send_message, evaluator.send_messages_count, mail_box_id: mail_box.id)
-        create_list(:received_message, evaluator.received_messages_count, mail_box_id: mail_box.id)
+        create_list(:message, evaluator.messages_count, mail_box_id: mail_box.id)
       end
     end
 
   end
 
-  factory :send_message do
+  factory :message do
     title { Faker::Book.title }
     body { Faker::ChuckNorris.fact }
     receiver_username { User.offset(rand(User.count)).first.username }
   end
 
-  factory :received_message do
-    title { Faker::Book.title }
-    body { Faker::ChuckNorris.fact }
-    sender_username { User.offset(rand(User.count)).first.username }
-  end
+
 
   factory :profile_page do
     name { Faker::Name.first_name }
@@ -64,7 +52,7 @@ FactoryBot.define do
 
     factory :event_with_event_invitations_and_comments do
       transient do
-        event_invitations_count { rand(1..5)}
+        event_invitations_count { rand(1..2)}
         comments_count {rand(1..6) }
       end
 
@@ -98,7 +86,7 @@ FactoryBot.define do
 
     factory :organization_with_organization_invitations do
       transient do
-        organization_invitations_count { rand(1..5) }
+        organization_invitations_count { rand(1..2) }
       end
 
       after(:create) do |organization, evaluator|
