@@ -23,7 +23,7 @@ class Event < ApplicationRecord
 
   def send_notification
     self.event_invitations.each do |invitation|
-      Notification.create(user_id: invitation.user_id, notification_type: 1)
+      Notification.create(user_id: invitation.user_id, notification_type: 1, event_id: self.id)
     end
   end
 

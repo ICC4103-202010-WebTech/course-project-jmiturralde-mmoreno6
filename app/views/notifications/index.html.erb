@@ -2,26 +2,38 @@
 <h1>Notifications</h1>
 <br>
 
-<ul class="list-group">
+<div class="list-group">
   <% @notifications.each do |notification| %>
+    <% if Event.exists?(id: notification.event_id) %>
       <% if notification.notification_type == 0 %>
-      <li class="list-group-item">
-          You has been invited to an event
-        <span class="badge"><%= time_ago_in_words(notification.created_at) %> AGO</span>
-        </li>
+        <%= link_to event_path(notification.event_id), class: "list-group-item list-group-item-action" do %>
+          You has been invited to an event: <%= Event.find(notification.event_id).title %> <span class="badge"><%= time_ago_in_words(notification.created_at) %> AGO</span>
+          <% end %>
       <% elsif notification.notification_type == 1%>
-      <li class="list-group-item">
-        The date of the event has been defined
-        <span class="badge"><%= time_ago_in_words(notification.created_at) %> AGO</span>
-        </li>
-      <% elsif notification.notification_type == 2%>
-      <li class="list-group-item">
-        The event has been canceled
-        <span class="badge"><%= time_ago_in_words(notification.created_at) %> AGO</span>
-        </li>
+        <%= link_to event_path(notification.event_id), class: "list-group-item list-group-item-action" do %>
+          The date of the event <%= Event.find(notification.event_id).title %> has been defined <span class="badge"><%= time_ago_in_words(notification.created_at) %> AGO</span>
+        <% end %>
       <% end %>
+      <% else %>
+        <% if notification.notification_type == 0 %>
+          <a href="#" class="list-group-item list-group-item-action disabled">
+            You has been invited to an event
+            <span class="badge"><%= time_ago_in_words(notification.created_at) %> AGO</span>
+          </a>
+        <% elsif notification.notification_type == 1%>
+          <a href="#" class="list-group-item list-group-item-action disabled">
+            The date of the event has been defined
+            <span class="badge"><%= time_ago_in_words(notification.created_at) %> AGO</span>
+          </a>
+        <% elsif notification.notification_type == 2%>
+          <a href="#" class="list-group-item list-group-item-action disabled">
+            The event has been canceled
+            <span class="badge"><%= time_ago_in_words(notification.created_at) %> AGO</span>
+          </a>
+        <% end %>
+    <% end %>
   <% end %>
-</ul>
+</div>
 
 
 <br>
