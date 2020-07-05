@@ -9,6 +9,7 @@ class Ability
     if user.present?
       event_invitations = user.event_invitations.map {|invitation| invitation.event_id}
       organization_invitations = user.organization_invitations.map {|invitation| invitation.organization_id}
+      organization_admins = user.organization_invitations.where(admin: true).map {|invitation| invitation.organization_id}
 
       if user.system_admin?
         can :manage, Event
@@ -27,7 +28,9 @@ class Ability
         end
 
         #Organizations
-        can :manage, Organization, user_id: user.id
+        can :manage, Organization do |org|
+          (organization_admins.include? org.id or org.user_id == user.id)
+        end
         can :manage, OrganizationInvitation, user_id: user.id
         can :read, Organization do |org|
           organization_invitations.include? org.id
